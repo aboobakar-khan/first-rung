@@ -44,3 +44,12 @@ jobs:
           git config user.email "khhnabubakar786@gmail.com"
           git commit -m "chore: refresh job dataset ($(date -u +%Y-%m-%d))"
           git push
+
+      - name: Build the site
+        run: bun run build
+
+      - name: Deploy to Cloudflare
+        run: bunx wrangler deploy --config wrangler.deploy.jsonc
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

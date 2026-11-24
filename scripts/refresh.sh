@@ -29,3 +29,17 @@ git -c user.name="first-rung refresh bot" \
 git push origin HEAD || { echo "[$(date -u +%FT%TZ)] push failed"; exit 1; }
 
 echo "[$(date -u +%FT%TZ)] dataset refreshed and pushed"
+
+# Publish the refreshed dataset. The commit above is history; this is what
+# changes what visitors actually see.
+if ! "$BUN" run build; then
+  echo "[$(date -u +%FT%TZ)] build failed; the live site was left on the previous build"
+  exit 1
+fi
+
+if ! ./node_modules/.bin/wrangler deploy --config wrangler.deploy.jsonc; then
+  echo "[$(date -u +%FT%TZ)] deploy failed; check CLOUDFLARE_API_TOKEN or run: npx wrangler login"
+  exit 1
+fi
+
+echo "[$(date -u +%FT%TZ)] live site redeployed"

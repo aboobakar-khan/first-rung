@@ -1,0 +1,17 @@
+{
+  // Deploy config for the built output. Kept separate from wrangler.jsonc
+  // (which the Vite plugin uses for dev) because postbuild.mjs strips source
+  // maps, and the generated dist config demands them.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "first-rung",
+  "main": "./dist/first_rung/index.js",
+  "no_bundle": true,
+  "compatibility_date": "2026-09-29",
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  },
+  "observability": { "enabled": true }
+}
