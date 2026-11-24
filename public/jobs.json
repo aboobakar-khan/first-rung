@@ -1,31 +1,51 @@
 {
-  "generatedAt": "2026-11-24T19:15:43.621Z",
+  "generatedAt": "2026-11-24T19:52:30.696Z",
   "counts": {
-    "jobs": 60,
-    "organisations": 3,
-    "countries": 2,
-    "salaryShown": 1
+    "jobs": 92,
+    "organisations": 7,
+    "countries": 4,
+    "salaryShown": 2
   },
   "sources": [
     {
       "name": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.org",
-      "note": "Workday careers site, read through its public job-board feed."
+      "note": "Public Workday careers feed. Apply links stay on Workday."
+    },
+    {
+      "name": "READ Foundation",
+      "url": "https://readfoundation.org.uk",
+      "note": "Public Workable jobs feed. Apply links stay on Workable."
+    },
+    {
+      "name": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org",
+      "note": "Careers page; the apply link opens the masjid’s own application form."
     },
     {
       "name": "Human Appeal",
       "url": "https://humanappeal.org.uk",
-      "note": "BambooHR careers site, read through its public vacancy list. Apply links go to BambooHR."
+      "note": "Public BambooHR vacancy list. Apply links stay on BambooHR."
+    },
+    {
+      "name": "Human Concern International",
+      "url": "https://humanconcern.org",
+      "note": "Public BambooHR vacancy list. Apply links stay on BambooHR."
     },
     {
       "name": "Muslim Hands",
       "url": "https://muslimhands.org.uk",
       "note": "Vacancies page, linked through to the organisation’s own listing."
+    },
+    {
+      "name": "Muslim Hands Canada",
+      "url": "https://muslimhands.ca",
+      "note": "Careers page, linked through to the organisation’s own listing."
     }
   ],
   "jobs": [
     {
-      "id": "wd-jun9o4",
+      "id": "wo-jun9o4",
       "title": "Fundraising Coordinator - Tri-city and Guelph",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Cambridge/Fundraising-Coordinator---Tri-city-and-Guelph_JR100278",
@@ -40,10 +60,10 @@
       "excerpt": "Employee Type: \nFixed Term (Fixed Term) \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the ",
       "description": "Employee Type: \nFixed Term (Fixed Term) \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n The Fund Development department aims to develop and implement strategies to increase the funding income of Islamic Relief through a range of fundraising initiatives and through the acquisition and retention of donors, volunteers and  community supporters \n\n Job Purpose: \n This position will work directly under the Regional FD Manager. He/she will be responsible for supporting the fulfillment of the organizational objectives of developing and optimising on community fundraising and volunteer initiatives  \n This position will be the point of contact and representative of IRC with their regional volunteer teams. \n \n Essential Duties & Responsibilities: \n Community Relations Maintain existing donor relationships and partnerships with a focus on an allocated area within the region   \n Explore and develop new relationships and partnerships with the goal of widening the community outreach and increasing the number of new donors to Islamic Relief   \n Manage the stakeholder relationships by holding regular meetings, providing feedback on donations and exploring what Islamic Relief can offer them  \n Manage mosque and community relations Organizing Jummah or Taraweeh collections for campaigns. \n Distribute material for specific campaigns at mosques and other gatherings (Ramadan, Qurbani, Emergencies) \n Set up fundraisers at mosques and in the community to raise funds and awareness  \n \n Meet fundraising targets and ensure return on investment is met with individuals and/or networks we partner with   \n Formalize partnerships with individuals and networks by following the necessary protocols i.e. establishing a Memorandum of Understanding or contracts   \n Provide fundraising support to stakeholders working with Islamic Relief  \n Respond to fundraising and other inquiries in relation to regional activities \n Communicate performance and provide regular updates to Line Manager \n Utilize all regional and personal social media platforms to promote Islamic Relief messaging, campaigns, activities and appeals \n \n Volunteers and Networking Build a regional volunteer team by recruiting, training and managing members \n Lead the regional volunteer team in planning and executing grass roots community events \n Lead regional volunteer team in executing larger IRC events, challenges and tours \n Assist with any fundraising activities taking place in the region \n Lead volunteer team to promote and obtain attendance at or with all IRC fundraising events and initiatives \n Attend and network at local and IRC events to build relationships, recruit for new volunteers  \n \n Event Planning and Execution Lead regional volunteer teams in managing events locally or event participation in consultation with line manager   \n Represent the organization at IR and non-IR events   \n Ensure that appropriate materials and equipment are available for events   \n Loading, delivering and returning materials and equipment to and from functions…",
       "family": "fundraising",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "wd-klwvma",
+      "id": "wo-klwvma",
       "title": "Website and Digital Experience Specialist",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Burlington-ON/Website-and-Digital-Experience-Specialist_JR100276",
@@ -58,10 +78,10 @@
       "excerpt": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department:  \n",
       "description": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department:  \n Join our dynamic Marketing Department, where creativity meets purpose. Our team is dedicated to crafting compelling campaigns and content that inspire and engage our community. We strive to amplify our mission, drive donor engagement, and create meaningful impact through innovative strategies and storytelling. \n\n Job Purpose:  \n Reporting to the Digital Marketing Manager, the Website and Digital Experience Specialist is responsible for managing the day-to-day operations of Islamic Relief Canada’s (IRC) website and digital products, ensuring content accuracy, functionality, and brand consistency.  \n   \n This role combines technical expertise with strategic insight to optimize user experience, improve search visibility, and enhance digital engagement across all Islamic Relief Canada web products. The Website & Digital Experience Specialist will work closely with the marketing and technology teams to ensure the website and related products remain effective, user-friendly, and reflective of IRC’s brand identity. \n  \n Essential Duties & Responsibilities:  \n    \n 1. Website Operations & Content Management  \n Oversee daily operations of the website, ensuring all content is accurate, functional, and up to date. \n Collaborate with content creators and designers to update landing pages, campaign pages, and other digital assets. \n Ensure all web products and assets reflect brand guidelines, tone of voice, and organizational priorities. \n Coordinate with internal teams to publish content that supports fundraising, campaigns, and donor engagement. \n  \n 2. User Experience & Optimization  \n Analyze user behavior and site performance to identify pain points and opportunities for improvement \n Use analytics tools (e.g., Google Analytics, Search Console, heatmaps) to track and report on website performance \n Recommend and implement enhancements to improve user engagement, navigation, and conversions \n Collaborate with the Technology team to improve usability, speed, and accessibility \n Lead A/B testing on landing pages and content to optimize conversion rates \n  \n 3. SEO & Search Visibility  \n Conduct keyword research and monitor SEO trends to maintain a competitive edge \n Implement on-page and technical SEO strategies to improve search engine rankings \n Provide insights and recommendations for content optimization based on search data and user trends \n Stay ahead of evolving discovery channels by monitoring how AI-driven platforms (e.g., LLMs, chat-based search, and answer engines) surface and interpret organizational content \n Develop strategies to optimize IRC’s digital presence and content for visibility in AI-generated responses and emerging search paradigms \n  \n 4. Innovation/R&D:   \n Monitor emerging web and digital experience trends to ensure IRC remains innovative and sector-leading \n Pilot and test innovative digital approaches that enhance supporter engagement, storytelling, and fundraising impact…",
       "family": "it",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "wd-18dszxa",
+      "id": "wo-18dszxa",
       "title": "Social Media Content Creator - [GTA]",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Remote---GTA/Social-Media-Specialist--GTA-_JR100251",
@@ -79,7 +99,25 @@
       "region": "worldwide"
     },
     {
-      "id": "wd-kvsbbd",
+      "id": "wo-ejompg",
+      "title": "Ramadan Donor Care Officer",
+      "company": "READ Foundation",
+      "url": "https://apply.workable.com/j/E8D34C8946",
+      "source": "workable",
+      "postedAt": "2026-10-20T12:00:00.000Z",
+      "location": "United Kingdom",
+      "salary": "£12.80 per hour",
+      "type": "Temporary",
+      "tags": [
+        "Donations"
+      ],
+      "excerpt": "",
+      "description": "Job Description & Person Specification\n Ramadan Donor Care Officer - Ramadan 2027\n Salary: £12.80 per hour\n Contract: Temporary / Zero-Hour Contract - Ramadan 2027 Campaign\n Hours/Shifts: Rotational, variable shifts - minimum 3-4 days per week. Primary daytime shifts will typically run from 11:00 AM to 4:30 PM, with timings subject to adjustment throughout Ramadan in line with changing Maghrib (sunset) times and operational requirements (see details below).\n Location: Manchester M14 6AX (On-site)\n Reports to: Donor Care Team Leader / Donor Care Manager\n Recruitment Period: October - November 2026\n Onboarding: Late November - Early December 2026 (exact dates TBC) Mandatory Ramadan training dates: Sun 31st Jan & Sat 6th Feb 2027\n Ramadan Campaign: Approximately 8th February - 9th March 2027 (subject to moon sighting)\n We are unable to sponsor applicants for visas for this particular post. Applicants must be resident in the UK and have the Right to Work in the UK. \n About READ Foundation\n READ Foundation is a UK-based registered charity working to provide access to quality education to vulnerable children in our regions of work. We create opportunities for orphan and needy children to go to school, gain an education and build a better life for themselves.\n We currently focus on constructing new schools, providing sponsorship for orphans and expanding our educational portfolio to reflect the significant humanitarian and development needs across the world.\n About Donor Care\n The Donor Care department at READ is essential to the organisation's success, fulfilling its role as the primary hub for customer service, donor retention and income generation.\n During Ramadan, Donor Care plays a particularly important role in strengthening relationships with existing donors, retaining Orphan Sponsorships and generating vital income for READ Foundation's charitable projects and appeals.\n Purpose of Job\n The Ramadan Donor Care Officer is a temporary, campaign-specific position recruited to support READ Foundation's Ramadan 2027 fundraising and donor-retention activities.\n The role is primarily focused on two key objectives:\n 1. Donor Retention: Maximising Orphan Sponsorship renewals through proactive donor engagement, relationship management and outbound telephone calls.\n 2. Income Generation: Raising vital funds through READ Foundation's Ramadan outbound fundraising campaign by engaging existing and prospective donors.\n Successful candidates will primarily be allocated to one of two teams:\n · Orphan Sponsorship Renewals Team \n · Ramadan Outbound Fundraising Team \n Some Officers may work across both functions or be selected to provide additional inbound donor support.\n Team allocations will be determined by management based on organisational priorities, individual competency, previous experience, training performance, productivity, attitude and operational requirements.\n Extensive training and ongoing support will be provided.\n Primary Ramadan Responsibilities\n 1. Orphan Sponsorship Renewals & Retention…",
+      "family": "fundraising",
+      "region": "uk"
+    },
+    {
+      "id": "wo-kvsbbd",
       "title": "Donor Relations Administrator",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Remote---On/Donor-Administrator_JR100265",
@@ -97,7 +135,7 @@
       "region": "worldwide"
     },
     {
-      "id": "wd-1wvy32h",
+      "id": "wo-1wvy32h",
       "title": "Regional Fundraising Manager - Ottawa/Quebec/Atlantic",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Montreal-QC/Regional-Fundraising-Manager---Ottawa-Quebec-Atlantic_JR100271",
@@ -112,10 +150,10 @@
       "excerpt": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n ",
       "description": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n The Fund Development department aims to develop and implement strategies to increase the funding income of Islamic Relief through a range of fundraising initiatives and through acquisition and retention of donors, volunteers and community supporters.  \n\n Job Purpose: \n This position will work directly under the Head of National Community Fundraising. He/she will be responsible for developing and implementing a sustainable community fundraising strategy for their region in order to raise funds and increase awareness & participation amongst supporters.  \n This position will be the point of contact and representative of IRC in the assigned region. \n This individual will need to develop a large network and work c­ollaboratively with key stakeholders including other departments internally, volunteers, community institutions and partners, to plan, deliver, and evaluate fundraising initiatives and maximize income generation opportunities. \n   \n Essential Duties & Responsibilities:  \n\n Manage Fundraising Team \n Lead, manage and motivate a team of fundraisers to achieve the national fundraising strategy, providing clear guidelines, plans, and deliverables. \n Ensure regular feedback is given to team members, issues and concerns highlighted, and remedial action is agreed and implemented. \n  Oversee the setting and implementation of objectives for direct reports and the regional fundraising team as a whole, aligned to the organisation's strategy and departments' work plans. \n Carry out regular 1:1 meetings and annual appraisals and actively performance manage staff. \n Ensure the regional team understand and adhere to the policies and procedures as directed \n \n Community Relations \n Identify and develop partnerships with local organizations, mosques and institutions to promote and support the work of Islamic Relief Canada \n Meet with boards and other key stakeholders to establish a partnership with IRC \n Scope and identify sponsorship opportunities in the region to build IRC presence, support from local partners and engagement with the community \n \n Event Planning and Execution \n Liaise with national events manager to plan for IRC events and speaker tours  \n Delegate implementation of events to regional fundraising team to ensure smooth roll out of each event/tour in the region and to meet set fundraising targets \n Leverage relationships with mosques, community partners and key donors to sell tickets to events ensuring their success \n \n Volunteers and Networking \n Create local networks of supporters across the region that can deliver benefits for Islamic Relief including income, increasing profile and engagement \n Travel within the region to meet and build relationships with key premium donors to enhance fundraising efforts…",
       "family": "fundraising",
-      "region": "other"
+      "region": "north-america"
     },
     {
-      "id": "wd-ruh4xk",
+      "id": "wo-ruh4xk",
       "title": "Bilingual Donor Relations Administrator - Full Time",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Remote---On/Bilingual-Donor-Relations-Administrator---Full-Time_JR100255",
@@ -133,7 +171,7 @@
       "region": "worldwide"
     },
     {
-      "id": "wd-lsp285",
+      "id": "wo-lsp285",
       "title": "Fundraising Specialist - Halifax",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Halifax-NS/Fundraising-Specialist---Halifax_JR100213",
@@ -151,7 +189,7 @@
       "region": "other"
     },
     {
-      "id": "wd-6yv510",
+      "id": "wo-6yv510",
       "title": "Regional Fundraising Manager - Southern Alberta",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Calgary-AB/Regional-Fundraising-Manager---Southern-Alberta_JR100260",
@@ -169,7 +207,7 @@
       "region": "north-america"
     },
     {
-      "id": "wd-1a4r8sf",
+      "id": "wo-1a4r8sf",
       "title": "Fundraising Specialist - [GTA East]",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Toronto-ON/Fundraising-Specialist----GTA-East-_JR100247",
@@ -187,7 +225,7 @@
       "region": "north-america"
     },
     {
-      "id": "wd-1hvjce1",
+      "id": "wo-1hvjce1",
       "title": "Fundraising Specialist - [GTA West]",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Burlington-ON/Fundraising-Specialist----GTA-West-_JR100246-1",
@@ -202,10 +240,10 @@
       "excerpt": "Employee Type: \nFixed Term (Fixed Term) \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the ",
       "description": "Employee Type: \nFixed Term (Fixed Term) \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n The Fund Development department aims to develop and implement strategies to increase the funding income of Islamic Relief through a range of fundraising initiatives and through acquisition and retention of donors, volunteers and community supporters.  \n \n Job Purpose: \n This position will work directly under the Regional FD Manager. He/she will be responsible for supporting the fulfillment of the organizational objectives of developing and optimizing on community fundraising and volunteer initiatives  \n\n The specialist will also be expected to oversee key external relationships, ensuring consistent engagement and support for Islamic Relief’s initiatives.  \n\n This position will be the point of contact and representative of IRC with their regional volunteer teams. \n\n \n Essential Duties & Responsibilities:  \n Community Relations \n Maintain existing donor relationships and partnerships with a focus on an allocated area within the region.  \n\n Explore and develop new relationships and partnerships with the goal of widening the community outreach and increasing the number of new donors to Islamic Relief   \n\n Manage the stakeholder relationships by holding regular meetings, providing feedback on donations and exploring what Islamic Relief can offer them  \n\n Manage and oversee mosque and community relations: \n Organizing Jummah or Taraweeh collections for campaigns. \n\n Distribute material for specific campaigns at mosques and other gatherings (Ramadan, Qurbani, Emergencies) \n\n Set up fundraisers at mosques and in the community to raise funds and awareness  \n\n \n Meet fundraising targets and ensure return on investment is met with individuals and/or networks we partner with.  \n\n Formalize partnerships with individuals and networks by following the necessary protocols i.e. establishing a Memorandum of Understanding or contracts   \n\n Provide fundraising support to stakeholders working with Islamic Relief  \n\n Respond to fundraising and other enquiries in relation to regional activities \n\n Communicate performance and provide regular updates to Line Manager \n\n Utilize all regional and personal social media platforms to promote Islamic Relief messaging, campaigns, activities and appeals \n\n \n Volunteers and Networking \n Build a regional volunteer team by recruiting, training and managing members \n\n Plan strategic activities in collaboration with the regional Manager or/and Team Leads and FD coordinators to engage and motivate volunteers. \n\n Lead the regional volunteer team in planning and executing grass roots community events.  \n\n Lead volunteer appreciation events and ensure ongoing recognition of their contributions. \n\n Lead regional volunteer team in executing larger IRC events, challenges and tours \n\n Assist with any fundraising activities taking place in the region \n\n Lead volunteer team to promote and obtain attendance at or with all IRC fundraising events and initiatives…",
       "family": "fundraising",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "wd-ii0j0h",
+      "id": "wo-ii0j0h",
       "title": "Fundraising Coordinator - [GTA West]",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Remote---GTA/Fundraising-Coordinator----GTA-West-_JR100248",
@@ -223,7 +261,7 @@
       "region": "worldwide"
     },
     {
-      "id": "wd-11r9uxx",
+      "id": "wo-11r9uxx",
       "title": "HR Specialist",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Burlington-ON/HR-Specialist_JR100245",
@@ -238,10 +276,10 @@
       "excerpt": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department    ",
       "description": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department     \n\n The People and Culture Department at Islamic Relief Canada strives to create a work environment that fosters collaboration, innovation, inclusion, and excellence. We are dedicated to building a positive and productive workplace culture where employees feel valued , supported , and equipped to contribute effectively.   \n\n   \n\n We support core  people functions, including recruitment and onboarding, employee relations and engagement, training and development, performance management, and compliance with labour laws and regulations. By joining our team, you will be part of a collaborative and supportive environment where your contributions directly  impact on  the well-being and success of our staff, enabling us to better serve communities in need.    \n \n\n Job Purpose     \n\n As an HR Specialist, you will play a pivotal role in supporting the People & Culture department and ensuring the smooth and efficient operation of core HR functions. Reporting to the Senior Manager, People & Culture, you will support HR administration, talent acquisition, employee relations, performance management, compensation and benefits, and compliance across the employee lifecycle. This is an additional role created to strengthen the department's capacity as IRC continues to grow and scale its people programs.    \n\n The ideal candidate will have a strong understanding of HR best practices, hands-on experience with HR systems (Workday), excellent communication and interpersonal skills, and the ability to handle sensitive and confidential information with discretion.    \n\n   \n\n Job Duties & Responsibilities     \n\n HR Operations     \n\n Identify and implement opportunities for process improvement and innovation within HR operations   \n\n \n Administer HR policies and procedures to ensure organizational consistency and compliance.   \n\n \n Manage employee benefits, including enrollment, updates, and related inquiries.    \n\n \n Oversee contract renewals and updates in a timely and accurate manner.    \n\n \n Maintain accurate and up-to-date employee records.    \n\n \n Provide guidance and support to employees on HR-related inquiries, issues, and concerns.   \n\n \n Assist with the development and implementation of HR initiatives, programs, and policies that support IRC's strategic objectives, and handle sensitive and confidential information with discretion and integrity   \n\n \n Support a workplace culture that is safe, inclusive, accountable, and in line with the organization's mission, vision, values and humanitarian purpose .     \n\n \n\n Talent Acquisition & Onboarding     \n\n Support the recruitment and selection process and coordinate a seamless onboarding experience for all new hires.    \n\n \n\n Collaborate with managers to identify staffing needs and support workforce planning, including the proposal and development of new roles.    \n\n \n\n Employee Relations & Engagement…",
       "family": "operations",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "wd-55sie1",
+      "id": "wo-55sie1",
       "title": "Director of Communications & Government Relations",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Burlington-ON/Director-of-Communications---Government-Relations_JR100236",
@@ -256,10 +294,10 @@
       "excerpt": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n ",
       "description": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n The Communications and Government Relations team is at the forefront of shaping and sharing the impact of our humanitarian work and advocacy. We foster strong connections with government officials and policymakers to advocate for meaningful change. With an innovative approach to media relations and public engagement, we work to amplify community stories that highlight our humanitarian efforts around the world. \n \n Job Purpose: \n The Director of Comms & GR  serves as an essential member of Islamic Relief Canada's senior leadership team (SLT).  The successful candidate will be an active participant in making strategic decisions affecting IRC.  In partnership with the SLT, this position is responsible for managing Islamic Relief’s external communications. This role leads the strategic delivery of the organization’s communications and government relations portfolios. This involves overseeing all Media Relations, Public Relations, Advocacy, Government Relations, Brand Management, Institutional Funding, Crisis Communications, Issues & Risk Management and Policy & Research \n \n Essential Duties & Responsibilities:  \n Media and Government Relations \n Build relationships with national and local media institutions in order to achieve media coverage for IRC’s initiatives  \n\n Work with teams across the IR family to build and develop content for media and government  \n\n Build relationships with key government officials in order to increase the profile of IRC  \n\n Respond to all relevant media enquiries  \n\n Manage media campaigns  \n\n Work with teams across IRC to coordinate media coverage  \n\n Develop and strengthen the messages, profile and recognition of IRC and information on its activities through proactive communications and engagement \n\n Work with communication, marketing and programs teams to develop content and materials for PR related activities \n\n Act as spokesperson for IRC and answer written and oral inquiries \n\n Coordinate special publicity events and promotions for external audiences \n\n Responsible for coordinating writing and publishing op-ed articles and blogs  \n\n \n Institutional Funding/Research/Advocacy \n Lead on coordinating IRC’s high level engagements, external relations and advocacy work \n\n Securing funding from corporate institutions, governments, UN agencies and community-based organizations \n\n Build relationships with media institutions (journalists, producers, editors) in order to build the profile of Islamic Relief and achieve media coverage through media interviews, blogs, articles and press coverage.  \n\n Collaborate with other leading NGOs on projects and programs.  \n\n \n Strategy \n Lead on the development and utilization of a consistent, coherent, meaningful and positive IRC image and set of core policy and advocacy messages  \n\n Speak at and learn from conferences and other public forums  \n\n Engage and form partnerships with other NGOs and CBOs…",
       "family": "comms",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "wd-1kmk4nb",
+      "id": "wo-1kmk4nb",
       "title": "Business Insights Analyst",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Burlington-ON/Business-Insights-Analyst_JR100231",
@@ -274,10 +312,10 @@
       "excerpt": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n ",
       "description": "Employee Type: \nPermanent \n Become a changemaker with Islamic Relief Canada! Join our team and work towards our mission to mobilize Canadians to transform more lives around the world in the most trusted manner.\n \n \n About the Department: \n Join our dynamic Marketing Department, where creativity meets purpose. Our team is dedicated to crafting compelling campaigns and content that inspire and engage our community. We strive to amplify our mission, drive donor engagement, and create meaningful impact through innovative strategies and storytelling.\n \n Job Purpose: \n The Business Insights Analyst serves as a strategic partner to Marketing, Fundraising, Donor Relations, and Senior Leadership teams by transforming data into actionable business insights. This role goes beyond traditional reporting to uncover growth opportunities, predict future outcomes, optimize donor experiences, and drive evidence-based decision making across the organization.\n \n Leveraging advanced analytics, business intelligence, predictive modeling, and emerging AI technologies, the Business Analytics Specialist will identify key drivers of fundraising performance, donor engagement, operational efficiency, and organizational growth. The successful candidate will combine analytical expertise with business acumen to influence strategy and help shape the future direction of the organization.\n \n Essential Duties & Responsibilities: \n Revenue Growth & Campaign Optimization \n Evaluate and optimize fundraising and marketing campaigns using data-driven insights and testing methodologies.\n\n Analyze donor journeys, conversion funnels, and channel performance to improve engagement and conversion rates.\n\n Develop attribution and measurement frameworks to assess marketing effectiveness and return on investment.\n\n Identify opportunities to increase fundraising revenue, donor retention, and overall marketing efficiency.\n\n \n Advanced Analytics & Predictive Insights \n Develop predictive models for donor acquisition, retention, upgrades, reactivation, lifetime value, and campaign performance.\n\n Conduct donor segmentation, propensity modelling, and audience analysis to improve personalization and engagement.\n\n Identify key drivers of fundraising and marketing performance through statistical analysis and data mining techniques.\n\n Analyze donor behaviour and giving patterns to uncover opportunities for growth and long-term supporter value.\n\n \n Analytics Innovation & Continuous Improvement \n Leverage AI, automation, and emerging analytics technologies to enhance forecasting, audience targeting, and organizational decision-making.\n\n Identify trends, risks, and growth opportunities through proactive analysis of internal and external data sources.\n\n Drive a culture of experimentation and continuous improvement through testing, measurement, and performance optimization.\n\n Recommend innovative solutions that improve organizational effectiveness and create competitive advantage.\n\n \n Strategic Business Intelligence & Decision Support \n Serve as a strategic analytics partner to Marketing, Fundraising, Donor Relations, and Leadership teams, translating business challenges into data-driven solutions.…",
       "family": "other",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "wd-e3vrxh",
+      "id": "wo-e3vrxh",
       "title": "Fundraising Coordinator - Metro Vancouver/BC",
       "company": "Islamic Relief Canada",
       "url": "https://islamicreliefcanada.wd3.myworkdayjobs.com/en-US/Islamic_Relief_Canada/job/Vancouver-BC/Fundraising-Coordinator---Metro-Vancouver-BC_JR100207",
@@ -295,7 +333,311 @@
       "region": "north-america"
     },
     {
-      "id": "bh-xypi6h",
+      "id": "mu-v43fr",
+      "title": "Chief Executive Officer",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Chief%20Executive%20Officer",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "operations",
+      "region": "uk"
+    },
+    {
+      "id": "mu-14wigyo",
+      "title": "Director of community engagement development",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Director%20of%20community%20engagement%20development",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "fundraising",
+      "region": "uk"
+    },
+    {
+      "id": "mu-1v5k2id",
+      "title": "Director of Operations",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Director%20of%20Operations",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "operations",
+      "region": "uk"
+    },
+    {
+      "id": "mu-1ti14gf",
+      "title": "Director of Religious Affairs",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Director%20of%20Religious%20Affairs",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "islamic-studies",
+      "region": "uk"
+    },
+    {
+      "id": "mu-o58bx9",
+      "title": "Finance Coordinator",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Finance%20Coordinator",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "finance",
+      "region": "uk"
+    },
+    {
+      "id": "mu-w47jws",
+      "title": "Fundraising Manager",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Fundraising%20Manager",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "fundraising",
+      "region": "uk"
+    },
+    {
+      "id": "mu-1lu3j4e",
+      "title": "Head of Dawah",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Head%20of%20Dawah",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "other",
+      "region": "uk"
+    },
+    {
+      "id": "mu-eii6vd",
+      "title": "Head of Fundraising",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Head%20of%20Fundraising",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "fundraising",
+      "region": "uk"
+    },
+    {
+      "id": "mu-1lq5c3f",
+      "title": "Head of Marketing",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Head%20of%20Marketing",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "comms",
+      "region": "uk"
+    },
+    {
+      "id": "mu-dt09wx",
+      "title": "Head of People and Culture",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Head%20of%20People%20and%20Culture",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "operations",
+      "region": "uk"
+    },
+    {
+      "id": "mu-s3tyu8",
+      "title": "Macmillan Male Cancer Support Worker",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Macmillan%20Male%20Cancer%20Support%20Worker",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "other",
+      "region": "uk"
+    },
+    {
+      "id": "mu-1sf17iy",
+      "title": "Macmillan Project Manager",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Macmillan%20Project%20Manager",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "programmes",
+      "region": "uk"
+    },
+    {
+      "id": "mu-1p6nyyk",
+      "title": "Madrasah Headteacher",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Madrasah%20Headteacher",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "education",
+      "region": "uk"
+    },
+    {
+      "id": "mu-eu3ibi",
+      "title": "Madrasah Hifdh Teacher",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Madrasah%20Hifdh%20Teacher",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "education",
+      "region": "uk"
+    },
+    {
+      "id": "mu-7ddfdl",
+      "title": "Madrasah Islamic Studies Teacher",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Madrasah%20Islamic%20Studies%20Teacher",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "islamic-studies",
+      "region": "uk"
+    },
+    {
+      "id": "mu-s768on",
+      "title": "Madrasah Qur'an Teacher",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Madrasah%20Qur'an%20Teacher",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "islamic-studies",
+      "region": "uk"
+    },
+    {
+      "id": "mu-5r8lt2",
+      "title": "Onsite Madrasah Administrator",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Onsite%20Madrasah%20Administrator",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "education",
+      "region": "uk"
+    },
+    {
+      "id": "mu-yihed2",
+      "title": "Revert outreach support lead co ordinator sister side",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Revert%20outreach%20support%20lead%20co%20ordinator%20sister%20side",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "other",
+      "region": "uk"
+    },
+    {
+      "id": "mu-u5wjjm",
+      "title": "Senior Dawah Project Manager",
+      "company": "Green Lane Masjid",
+      "url": "https://greenlanemasjid.org/website-vacancy-application-form/?job_title=Senior%20Dawah%20Project%20Manager",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Birmingham, United Kingdom",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "",
+      "description": "",
+      "family": "programmes",
+      "region": "uk"
+    },
+    {
+      "id": "ba-xypi6h",
       "title": " Finance Manager",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/69",
@@ -313,7 +655,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-1wn05sb",
+      "id": "ba-1wn05sb",
       "title": "Accounts Receivables Finance Officer",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/38",
@@ -331,7 +673,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-1wd0k3c",
+      "id": "ba-1wd0k3c",
       "title": "Accounts Receivables Lead",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/39",
@@ -349,7 +691,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-1v95atf",
+      "id": "ba-1v95atf",
       "title": "Associate Manager of Student Outreach",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/45",
@@ -367,7 +709,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-vfgiqk",
+      "id": "ba-vfgiqk",
       "title": "Communications Officer Sudan",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/84",
@@ -382,10 +724,10 @@
       "excerpt": "Who We Are Human Appeal is a global non-profit humanitarian and development organisation. We deliver life-saving emergency assistance such as food, medical aid, and disaster relief. At the same time, we run sustainable, community-led progra",
       "description": "Who We Are Human Appeal is a global non-profit humanitarian and development organisation. We deliver life-saving emergency assistance such as food, medical aid, and disaster relief. At the same time, we run sustainable, community-led programmes in healthcare, education, and livelihoods to build resilienc",
       "family": "comms",
-      "region": "other"
+      "region": "africa"
     },
     {
-      "id": "bh-1v925bg",
+      "id": "ba-1v925bg",
       "title": "Customer Care Advisor ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/35",
@@ -403,7 +745,7 @@
       "region": "north-america"
     },
     {
-      "id": "bh-10glxf8",
+      "id": "ba-10glxf8",
       "title": "Director of Finance",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/66",
@@ -418,10 +760,10 @@
       "excerpt": "JOB OBJECTIVES As Director of Finance, the successful candidate will play an integral role in contributing to the attainment of Human Appeal’s (HA) objectives by providing strategic and financial guidance to ensure that the organization’s f",
       "description": "JOB OBJECTIVES As Director of Finance, the successful candidate will play an integral role in contributing to the attainment of Human Appeal’s (HA) objectives by providing strategic and financial guidance to ensure that the organization’s financial commitments are met, including developing all necessary",
       "family": "finance",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "bh-1vj4wie",
+      "id": "ba-1vj4wie",
       "title": "Donor Care Advisor",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/46",
@@ -439,7 +781,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-11knhp3",
+      "id": "ba-11knhp3",
       "title": "Donor Care Advisor (Middle East)",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/70",
@@ -457,7 +799,25 @@
       "region": "uk"
     },
     {
-      "id": "bh-10qoom6",
+      "id": "ba-vpg4fj",
+      "title": "Executive Admin",
+      "company": "Human Appeal",
+      "url": "https://humanappeal.bamboohr.com/careers/85",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Cheadle, Greater Manchester",
+      "salary": null,
+      "type": "Temporary - Casual Worker",
+      "tags": [
+        "Middle East"
+      ],
+      "excerpt": "Who We Are Human Appeal is a global non-profit humanitarian and development organisation. We deliver life-saving emergency assistance such as food, medical aid, and disaster relief. At the same time, we run sustainable, community-led progra",
+      "description": "Who We Are Human Appeal is a global non-profit humanitarian and development organisation. We deliver life-saving emergency assistance such as food, medical aid, and disaster relief. At the same time, we run sustainable, community-led programmes in healthcare, education, and livelihoods to build resilienc",
+      "family": "other",
+      "region": "uk"
+    },
+    {
+      "id": "ba-10qoom6",
       "title": "Finance Coordinator Palestine",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/77",
@@ -475,7 +835,7 @@
       "region": "middle-east"
     },
     {
-      "id": "bh-uvhbcm",
+      "id": "ba-uvhbcm",
       "title": "Fundraising Coordinator - Edmonton/Calgary ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/82",
@@ -493,7 +853,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-z2r2gc",
+      "id": "ba-z2r2gc",
       "title": "Fundraising Coordinator - GTA ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/79",
@@ -511,7 +871,7 @@
       "region": "north-america"
     },
     {
-      "id": "bh-ulhpnn",
+      "id": "ba-ulhpnn",
       "title": "Fundraising Coordinator - Montreal ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/81",
@@ -529,7 +889,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-v5gx1l",
+      "id": "ba-v5gx1l",
       "title": "Fundraising Coordinator - Vancouver ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/83",
@@ -547,7 +907,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-ubi3yo",
+      "id": "ba-ubi3yo",
       "title": "Fundraising Coordinator - Western Ontario",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/80",
@@ -565,7 +925,7 @@
       "region": "north-america"
     },
     {
-      "id": "bh-11un3e2",
+      "id": "ba-11un3e2",
       "title": "Fundraising Officer - Edmonton/Calgary ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/73",
@@ -583,7 +943,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-110oab5",
+      "id": "ba-110oab5",
       "title": "Fundraising Officer - GTA ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/76",
@@ -601,7 +961,7 @@
       "region": "north-america"
     },
     {
-      "id": "bh-106ph88",
+      "id": "ba-106ph88",
       "title": "Fundraising Officer - Montreal ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/75",
@@ -619,7 +979,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-124mp31",
+      "id": "ba-124mp31",
       "title": "Fundraising Officer - Vancouver",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/72",
@@ -637,7 +997,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-10gp2x7",
+      "id": "ba-10gp2x7",
       "title": "Fundraising Officer - Western Ontario ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/74",
@@ -655,7 +1015,7 @@
       "region": "north-america"
     },
     {
-      "id": "bh-10qlj47",
+      "id": "ba-10qlj47",
       "title": "Head of Emergency Response & Preparedness",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/67",
@@ -673,7 +1033,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-1x75o67",
+      "id": "ba-1x75o67",
       "title": "Logistics Assistant (Wrap Up Campaign)",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/52",
@@ -691,7 +1051,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-1w30yed",
+      "id": "ba-1w30yed",
       "title": "Mosque Coordinator",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/36",
@@ -709,7 +1069,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-1uz5p4g",
+      "id": "ba-1uz5p4g",
       "title": "National Masjid Manager",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/44",
@@ -727,7 +1087,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-1w343wc",
+      "id": "ba-1w343wc",
       "title": "Operations Manager",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/40",
@@ -745,7 +1105,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-xopwhi",
+      "id": "ba-xopwhi",
       "title": "People and Culture Coordinator",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/68",
@@ -763,7 +1123,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-zcninc",
+      "id": "ba-zcninc",
       "title": "Programme Partner Assistant",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/62",
@@ -781,7 +1141,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-11anw04",
+      "id": "ba-11anw04",
       "title": "Project Coordinator",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/71",
@@ -799,7 +1159,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-1wd6v3a",
+      "id": "ba-1wd6v3a",
       "title": "Reach Officer ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/55",
@@ -817,7 +1177,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-zcqo5b",
+      "id": "ba-zcqo5b",
       "title": "Regional Fundraising Manager (Western Canada) ",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/78",
@@ -835,7 +1195,7 @@
       "region": "worldwide"
     },
     {
-      "id": "bh-1u53qjk",
+      "id": "ba-1u53qjk",
       "title": "Social Media & Content Marketing Executive",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/31",
@@ -853,7 +1213,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-1uz2jmh",
+      "id": "ba-1uz2jmh",
       "title": "Social Media Fundraising Executive",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/32",
@@ -871,7 +1231,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-zmn4cb",
+      "id": "ba-zmn4cb",
       "title": "Staff Accountant",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/63",
@@ -886,28 +1246,10 @@
       "excerpt": "As a Staff Accountant to independently manage key accounting functions, with primary responsibility for bank and balance sheet reconciliations, month‑end close activities, and general ledger integrity. This role is ideal for an experienced ",
       "description": "As a Staff Accountant to independently manage key accounting functions, with primary responsibility for bank and balance sheet reconciliations, month‑end close activities, and general ledger integrity. This role is ideal for an experienced accounting professional who can own accounts end‑to‑end, identify",
       "family": "finance",
-      "region": "north-america"
+      "region": "other"
     },
     {
-      "id": "bh-1wn6gs9",
-      "title": "Volunteers Officer (Scotland)",
-      "company": "Human Appeal",
-      "url": "https://humanappeal.bamboohr.com/careers/54",
-      "source": "bamboohr",
-      "postedAt": null,
-      "location": "Remote",
-      "salary": null,
-      "type": "Part-Time - Fixed Term Contract",
-      "tags": [
-        "People & Culture"
-      ],
-      "excerpt": "Who We Are Human Appeal is a global non-profit humanitarian and development organisation. We deliver life-saving emergency assistance such as food, medical aid, and disaster relief. At the same time, we run sustainable, community-led progra",
-      "description": "Who We Are Human Appeal is a global non-profit humanitarian and development organisation. We deliver life-saving emergency assistance such as food, medical aid, and disaster relief. At the same time, we run sustainable, community-led programmes in healthcare, education, and livelihoods to build resilien",
-      "family": "operations",
-      "region": "worldwide"
-    },
-    {
-      "id": "bh-110l4t6",
+      "id": "ba-110l4t6",
       "title": "Waqf Fundraising Lead",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/64",
@@ -925,7 +1267,7 @@
       "region": "uk"
     },
     {
-      "id": "bh-xxn4t",
+      "id": "ba-xxn4t",
       "title": "Website Content Manager",
       "company": "Human Appeal",
       "url": "https://humanappeal.bamboohr.com/careers/58",
@@ -943,23 +1285,185 @@
       "region": "uk"
     },
     {
-      "id": "mh-o1q6ev",
-      "title": "Community Fundraising Manager",
-      "company": "Muslim Hands",
-      "url": "https://muslimhands.org.uk/get-involved/vacancies/community-fundraising-manager",
-      "source": "muslimhands",
+      "id": "ba-3w37hg",
+      "title": "Admin Coordinator",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/68",
+      "source": "bamboohr",
       "postedAt": null,
-      "location": "United Kingdom",
+      "location": "Ottawa, Ontario",
       "salary": null,
-      "type": "",
+      "type": "Permanent part-time",
       "tags": [],
-      "excerpt": "We&#x27;re searching for an experienced Community Fundraising Manager to join our fundraising team.",
-      "description": "We&#x27;re searching for an experienced Community Fundraising Manager to join our fundraising team.",
-      "family": "fundraising",
-      "region": "uk"
+      "excerpt": "Job Posting - ADMIN COORDINATOR At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI h",
+      "description": "Job Posting - ADMIN COORDINATOR At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, delivering aid and",
+      "family": "other",
+      "region": "north-america"
     },
     {
-      "id": "mh-1lmlf7r",
+      "id": "ba-462t6f",
+      "title": "Community Outreach Officer",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/69",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Permanent part-time",
+      "tags": [],
+      "excerpt": "Job Posting - Community Outreach Officer (Edmonton) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For ",
+      "description": "Job Posting - Community Outreach Officer (Edmonton) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief",
+      "family": "operations",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-12ksooy",
+      "title": "Director of Programs",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/71",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Ottawa, Ontario",
+      "salary": null,
+      "type": "Permanent full-time",
+      "tags": [],
+      "excerpt": "Job Posting - Director of Programs At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises,ensuring that communities receive the support they need when they need it most. For over 40 years, HCI",
+      "description": "Job Posting - Director of Programs At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises,ensuring that communities receive the support they need when they need it most. For over 40 years, HCIhas been at the forefront of emergency relief, delivering aid an",
+      "family": "other",
+      "region": "north-america"
+    },
+    {
+      "id": "ba-120thb0",
+      "title": "Donor Care Coordinator",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/73",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Permanent full-time",
+      "tags": [],
+      "excerpt": "Job Posting - Donor Care Coordinator At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, ",
+      "description": "Job Posting - Donor Care Coordinator At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, delivering ai",
+      "family": "fundraising",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-12usadx",
+      "title": "Fundraising Officer - Calgary",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/70",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Permanent full-time",
+      "tags": [],
+      "excerpt": "At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emer",
+      "description": "At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, delivering aid and hope to families in over 40 coun",
+      "family": "fundraising",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-11gu9x2",
+      "title": "FUNDRAISING OFFICER - CALGARY (Contract)",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/75",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Contractual",
+      "tags": [],
+      "excerpt": "JOB POSTING - FUNDRAISING OFFICER - CALGARY (Contract) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. F",
+      "description": "JOB POSTING - FUNDRAISING OFFICER - CALGARY (Contract) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency rel",
+      "family": "fundraising",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-1e6s8p",
+      "title": "Fundraising Officer - Edmonton",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/67",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Permanent part-time",
+      "tags": [],
+      "excerpt": "Job Posting - FUNDRAISING OFFICER (Edmonton) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40",
+      "description": "Job Posting - FUNDRAISING OFFICER (Edmonton) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, deliv",
+      "family": "fundraising",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-11qtvm1",
+      "title": "FUNDRAISING OFFICER - GTA (Contract)",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/74",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Mississauga, Ontario",
+      "salary": null,
+      "type": "Contractual",
+      "tags": [],
+      "excerpt": "JOB POSTING - FUNDRAISING OFFICER - GTA (Contract) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For o",
+      "description": "JOB POSTING - FUNDRAISING OFFICER - GTA (Contract) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief,",
+      "family": "fundraising",
+      "region": "north-america"
+    },
+    {
+      "id": "ba-u7kur",
+      "title": "Fundraising Officer - Ottawa",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/65",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Ottawa, Ontario",
+      "salary": null,
+      "type": "Permanent full-time",
+      "tags": [],
+      "excerpt": "Job Posting - FUNDRAISING OFFICER (Ottawa) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 y",
+      "description": "Job Posting - FUNDRAISING OFFICER (Ottawa) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, deliver",
+      "family": "fundraising",
+      "region": "north-america"
+    },
+    {
+      "id": "ba-1476jq",
+      "title": "Fundraising Officer - Vancouver",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/66",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Permanent full-time",
+      "tags": [
+        "Fundraising"
+      ],
+      "excerpt": "Job Posting - FUNDRAISING OFFICER (Vancouver) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 4",
+      "description": "Job Posting - FUNDRAISING OFFICER (Vancouver) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, deli",
+      "family": "fundraising",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-12at2zz",
+      "title": "Marketing Manager",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/72",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Permanent full-time",
+      "tags": [],
+      "excerpt": "Job Posting - Marketing Manager At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI h",
+      "description": "Job Posting - Marketing Manager At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, delivering aid and",
+      "family": "comms",
+      "region": "worldwide"
+    },
+    {
+      "id": "mu-1lmlf7r",
       "title": "Digital Content Editor",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/digital-content-editor",
@@ -975,7 +1479,7 @@
       "region": "uk"
     },
     {
-      "id": "mh-6oqib0",
+      "id": "mu-6oqib0",
       "title": "Donor Engagement and Retention Manager",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/donor-engagement-and-retention-manager",
@@ -991,7 +1495,7 @@
       "region": "uk"
     },
     {
-      "id": "mh-1fwjei4",
+      "id": "mu-1fwjei4",
       "title": "Finance Assistant",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/finance-assistant",
@@ -1007,7 +1511,7 @@
       "region": "uk"
     },
     {
-      "id": "mh-1tv0r5b",
+      "id": "mu-1tv0r5b",
       "title": "Head of Content and Creative",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/head-of-content-and-creative",
@@ -1019,11 +1523,11 @@
       "tags": [],
       "excerpt": "We&#x27;re looking for a skilled Head of Content and Creative to join our Fundraising team!",
       "description": "We&#x27;re looking for a skilled Head of Content and Creative to join our Fundraising team!",
-      "family": "fundraising",
+      "family": "comms",
       "region": "uk"
     },
     {
-      "id": "mh-xa9s2r",
+      "id": "mu-xa9s2r",
       "title": "Head of Grants Management",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/head-of-grants-management",
@@ -1035,11 +1539,11 @@
       "tags": [],
       "excerpt": "Join our Programmes team as the Head of Grants Management.",
       "description": "Join our Programmes team as the Head of Grants Management.",
-      "family": "programmes",
+      "family": "other",
       "region": "uk"
     },
     {
-      "id": "mh-12akftm",
+      "id": "mu-12akftm",
       "title": "Head of Marketing Vacancy",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/head-of-marketing",
@@ -1051,11 +1555,11 @@
       "tags": [],
       "excerpt": "We&#x27;re looking for a skilled Head of Marketing to join our fundraising team!",
       "description": "We&#x27;re looking for a skilled Head of Marketing to join our fundraising team!",
-      "family": "fundraising",
+      "family": "comms",
       "region": "uk"
     },
     {
-      "id": "mh-cwroxq",
+      "id": "mu-cwroxq",
       "title": "HR Compliance Officer",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/hr-compliance-officer",
@@ -1071,7 +1575,7 @@
       "region": "uk"
     },
     {
-      "id": "mh-92q3dr",
+      "id": "mu-92q3dr",
       "title": "Social Media Manager (Global)",
       "company": "Muslim Hands",
       "url": "https://muslimhands.org.uk/get-involved/vacancies/social-media-manager-global",
@@ -1085,6 +1589,38 @@
       "description": "Join Muslim Hands as part of our global social media team.",
       "family": "comms",
       "region": "uk"
+    },
+    {
+      "id": "mu-1tizvbd",
+      "title": "Community Fundraising Manager",
+      "company": "Muslim Hands Canada",
+      "url": "https://muslimhands.ca/about-us/careers/community-fundraising-manager",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Canada",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "Muslim Hands Canada is seeking a passionate Cto strengthen community engagement and support fundraising initiatives across Canada.",
+      "description": "Muslim Hands Canada is seeking a passionate Cto strengthen community engagement and support fundraising initiatives across Canada.",
+      "family": "fundraising",
+      "region": "north-america"
+    },
+    {
+      "id": "mu-1hf9zw7",
+      "title": "Fund Development Coordinator",
+      "company": "Muslim Hands Canada",
+      "url": "https://muslimhands.ca/about-us/careers/fund-development-coordinator",
+      "source": "muslimhands",
+      "postedAt": null,
+      "location": "Canada",
+      "salary": null,
+      "type": "",
+      "tags": [],
+      "excerpt": "Muslim Hands Canada is seeking a passionate Fund Development Coordinator to strengthen community engagement and support fundraising initiatives across Canada.",
+      "description": "Muslim Hands Canada is seeking a passionate Fund Development Coordinator to strengthen community engagement and support fundraising initiatives across Canada.",
+      "family": "other",
+      "region": "north-america"
     }
   ]
 }

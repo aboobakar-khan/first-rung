@@ -34,11 +34,20 @@ Action both call it) — once a day is enough.
 | --- | --- | --- |
 | Islamic Relief Canada | Workday public careers feed | Apply links stay on Workday |
 | Human Appeal | BambooHR public vacancy list | Apply links stay on BambooHR |
-| Muslim Hands | Vacancy page | Links to the organisation's own listing |
+| Human Concern International | BambooHR public vacancy list | Apply links stay on BambooHR |
+| READ Foundation | Workable jobs feed | Apply links stay on Workable |
+| Muslim Hands | Vacancies page | Links to the organisation's own listing |
+| Muslim Hands Canada | Careers page | Links to the organisation's own listing |
+| Green Lane Masjid | Careers page | Apply link opens the masjid's own form |
 
-Three source adapters live in `scripts/ingest.ts` (`fromWorkday`,
-`fromBamboo`, `fromMuslimHands`). Adding an organisation means adding its
-careers system to the matching list; nothing else changes.
+Four adapters live in `scripts/ingest.ts` (`fromWorkday`, `fromBamboo`,
+`fromWorkable`, `fromHtml`). Adding an organisation means adding it to the
+matching config list; nothing else changes. Volunteer posts and site-navigation
+junk are filtered by `keepTitle`.
+
+Every organisation was checked by hand before being added: a slug like `mas`
+looks like a Muslim organisation but is actually *Midwest Applied Solutions*, so
+it is not on the list.
 
 Deliberately **not** used: other Muslim job boards and aggregators. Copying
 their listings is not ours to do, and ReliefWeb's jobs API now needs an

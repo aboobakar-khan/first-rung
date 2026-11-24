@@ -132,24 +132,21 @@ export function Board() {
               </div>
               <div>
                 <p className="text-faint">Sources</p>
-                <p className="mt-1 text-[17px] tabular-nums">3</p>
+                <p className="mt-1 text-[17px] tabular-nums">{loading ? '—' : data?.sources.length}</p>
               </div>
             </div>
 
             <p className="mt-5 text-[12px] leading-relaxed text-faint">
-              Rebuilt daily from{' '}
-              <a href={data?.sources[0]?.url ?? 'https://islamicreliefcanada.org'} target="_blank" rel="noopener" className="link-draw text-muted">
-                Islamic Relief Canada
-              </a>
-              ,{' '}
-              <a href={data?.sources[1]?.url ?? 'https://humanappeal.org.uk'} target="_blank" rel="noopener" className="link-draw text-muted">
-                Human Appeal
-              </a>{' '}
-              and{' '}
-              <a href={data?.sources[2]?.url ?? 'https://muslimhands.org.uk'} target="_blank" rel="noopener" className="link-draw text-muted">
-                Muslim Hands
-              </a>
-              . Apply links go to the employer.
+              Rebuilt daily from the careers pages of{' '}
+              {data?.sources.slice(0, 3).map((source, index) => (
+                <span key={source.name}>
+                  {index > 0 && ', '}
+                  <a href={source.url} target="_blank" rel="noopener" className="link-draw text-muted">
+                    {source.name}
+                  </a>
+                </span>
+              ))}
+              {data && data.sources.length > 3 ? ` and ${data.sources.length - 3} more` : ''}. Apply links go to the employer.
             </p>
           </div>
         </div>

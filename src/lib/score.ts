@@ -60,6 +60,7 @@ const REGION_CITIES: [Region, RegExp][] = [
   ['uk', /(london|birmingham|manchester|leeds|glasgow|nottingham|leicester|coventry|bradford|luton|bristol|edinburgh|cardiff|belfast|sheffield|liverpool)/i],
   ['north-america', /(toronto|mississauga|brampton|ottawa|calgary|vancouver|edmonton|chicago|new york|houston|dallas|atlanta|detroit|los angeles|washington|montreal)/i],
   ['middle-east', /(dubai|abu dhabi|doha|riyadh|jeddah|amman|beirut|istanbul)/i],
+  ['africa', /(khartoum|omdurman|mogadishu|nairobi|lagos|accra|dakar|bamako)/i],
 ]
 
 /** Region for a free-text location, e.g. "Manchester, UK" or "Cambridge, Ontario". */
@@ -85,6 +86,8 @@ const COUNTRY_HINTS: [string, RegExp][] = [
   ['Nigeria', /nigeria/i],
   ['Kenya', /kenya/i],
   ['Somalia', /somalia/i],
+  ['Sudan', /(sudan|khartoum|omdurman)/i],
+  ['Palestine', /(palestine|gaza)/i],
   ['Malaysia', /malaysia/i],
   ['Indonesia', /indonesia/i],
   ['Turkey', /(turkey|türkiye)/i],

@@ -5,19 +5,21 @@
  *
  *   bun run ingest
  *
- * Three source types, each one a public endpoint or page the organisation
- * publishes for its own applicants:
+ * Four source types, each a public endpoint or page the organisation publishes
+ * for its own applicants:
  *
- *   Workday  — /wday/cxs/<tenant>/<site>/jobs, the same JSON its careers page
- *              uses. No key.
+ *   Workday  — /wday/cxs/<tenant>/<site>/jobs, the JSON behind its careers page.
  *   BambooHR — /careers/list, the JSON behind its hosted vacancy list.
- *   HTML     — a plain vacancy page, parsed for title, blurb and link.
+ *   Workable — /api/v1/widget/accounts/<account>, the widget's own feed.
+ *   HTML     — a plain vacancy page, parsed for titles and links.
  *
  * Nothing here republishes listings from another job board or aggregator.
+ * Every organisation was checked by hand: the slug has to resolve to that
+ * organisation, not to something with a similar name.
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { classifyFamily, classifyRegion, countryOf, jobKey, plainText, stableId } from '../src/lib/score'
-import type { Dataset, Job } from '../src/lib/types'
+import type { Dataset, Job, JobSource } from '../src/lib/types'
 
 const OUT = new URL('../public/jobs.json', import.meta.url)
 const CONTACT = process.env.CONTACT_EMAIL ?? 'khhnabubakar786@gmail.com'
@@ -69,7 +71,6 @@ async function getText(url: string): Promise<string | null> {
   return response.text()
 }
 
-/** Runs an async mapper over items with a small concurrency cap. */
 async function mapLimit<T, R>(items: T[], limit: number, mapper: (item: T) => Promise<R>): Promise<R[]> {
   const results: R[] = []
   let index = 0
@@ -84,28 +85,86 @@ async function mapLimit<T, R>(items: T[], limit: number, mapper: (item: T) => Pr
   return results
 }
 
-function hash<Result>(html: string): { excerpt: string; description: string } {
-  const text = plainText(html, 3200)
-  return { excerpt: plainText(html, 240), description: text }
-}
-
 function metaDescription(html: string): string | null {
   const match = html.match(/<meta[^>]+(?:property|name)=["'](?:og:description|description)["'][^>]*content=["']([^"']+)["']/i)
   return match ? match[1].replace(/\s+/g, ' ').trim() : null
 }
 
+function meta(html: string, property: string): string | null {
+  const match = html.match(new RegExp(`<meta[^>]+property=["']${property}["'][^>]*content=["']([^"']+)["']`, 'i'))
+  return match ? match[1].replace(/\s+/g, ' ').trim() : null
+}
+
 function salaryFrom(text: string): string | null {
-  const match = text.match(/(?:£|CAD|USD|\$|€)\s?\d[\d,.]*(?:\s?(?:-|–|to)\s?(?:£|CAD|USD|\$|€)?\s?\d[\d,.]*)?(?:\s?(?:per|a|an)?\s?(?:year|annum|month|hour|hr))?/i)
+  const match = text.match(
+    /(?:£|CAD|USD|\$|€)\s?\d[\d,.]*(?:\s?(?:-|–|to)\s?(?:£|CAD|USD|\$|€)?\s?\d[\d,.]*)?(?:\s?(?:per|a|an)?\s?(?:year|annum|month|hour|hr))?/i,
+  )
   return match ? match[0].replace(/\s+/g, ' ').trim() : null
 }
 
 type Draft = { job: Job; key: string }
 
+type Build = {
+  company: string
+  source: JobSource
+  title: string
+  url: string
+  location: string
+  postedAt?: string | null
+  type?: string
+  tags?: string[]
+  description?: string
+  excerpt?: string
+  salary?: string | null
+}
+
+function cleanTitle(raw: string): string {
+  const title = raw
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return title ? title[0].toUpperCase() + title.slice(1) : title
+}
+
+/** The board lists paid roles; volunteer posts and nav junk are dropped. */
+function keepTitle(title: string): boolean {
+  if (title.length < 4) return false
+  if (/\bvolunteer/i.test(title)) return false
+  if (/^(events|jobs|careers|apply|search|menu)$/i.test(title)) return false
+  return /[a-z]{3}/i.test(title)
+}
+
+function makeJob(input: Build): Draft {
+  const description = (input.description ?? '').trim()
+  const tags = (input.tags ?? []).filter(Boolean).slice(0, 3)
+  const location = input.location.replace(/\s*\d+\s*Locations?/i, '').trim() || 'Multiple locations'
+
+  return {
+    key: jobKey(input.company, input.title),
+    job: {
+      id: `${input.source.slice(0, 2)}-${stableId(input.url)}`,
+      title: input.title,
+      company: input.company,
+      url: input.url,
+      source: input.source,
+      postedAt: input.postedAt ?? null,
+      location,
+      salary: input.salary ?? salaryFrom(description),
+      type: input.type ?? '',
+      tags,
+      excerpt: (input.excerpt ?? description).slice(0, 240),
+      description,
+      family: classifyFamily(input.title, tags),
+      region: classifyRegion(location),
+    },
+  }
+}
+
 /* ------------------------------------------------------------------ Workday */
 
-type WorkdayConfig = { company: string; base: string; tenant: string; site: string }
+type WorkdayOrg = { company: string; base: string; tenant: string; site: string }
 
-const WORKDAY_ORGS: WorkdayConfig[] = [
+const WORKDAY_ORGS: WorkdayOrg[] = [
   {
     company: 'Islamic Relief Canada',
     base: 'https://islamicreliefcanada.wd3.myworkdayjobs.com',
@@ -128,8 +187,8 @@ function workdayDate(postedOn: string | undefined, startDate: string | undefined
   return null
 }
 
-async function fromWorkday(config: WorkdayConfig): Promise<Draft[]> {
-  const listUrl = `${config.base}/wday/cxs/${config.tenant}/${config.site}/jobs`
+async function fromWorkday(org: WorkdayOrg): Promise<Draft[]> {
+  const listUrl = `${org.base}/wday/cxs/${org.tenant}/${org.site}/jobs`
   const postings: any[] = []
   let offset = 0
 
@@ -147,38 +206,23 @@ async function fromWorkday(config: WorkdayConfig): Promise<Draft[]> {
   }
 
   const drafts = await mapLimit(postings, 4, async (posting): Promise<Draft | null> => {
-    const detailUrl = `${config.base}/wday/cxs/${config.tenant}/${config.site}${posting.externalPath}`
-    const detail = await getJson<{ jobPostingInfo?: any }>(detailUrl)
+    const detail = await getJson<{ jobPostingInfo?: any }>(`${listUrl.replace('/jobs', '')}${posting.externalPath}`)
     const info = detail?.jobPostingInfo ?? {}
-
     const title: string = info.title ?? posting.title ?? ''
     if (!title) return null
 
-    const description = plainText(info.jobDescription ?? '', 3200)
-    const locationText: string = info.location ?? info.additionalLocations?.[0] ?? posting.locationsText ?? ''
-    const location = locationText.replace(/\s*\d+\s*Locations?/i, '').trim() || 'Multiple locations'
     const bullet: string[] = posting.bulletFields ?? []
-    const url = `${config.base}/en-US/${config.site}${posting.externalPath}`
-
-    return {
-      key: jobKey(config.company, title),
-      job: {
-        id: `wd-${stableId(url)}`,
-        title,
-        company: config.company,
-        url,
-        source: 'workday',
-        postedAt: workdayDate(posting.postedOn, info.startDate),
-        location,
-        salary: salaryFrom(description),
-        type: bullet[0] ?? '',
-        tags: bullet.slice(1, 3),
-        excerpt: metaDescription(description) ?? description.slice(0, 240),
-        description,
-        family: classifyFamily(title, bullet),
-        region: classifyRegion(location),
-      },
-    }
+    return makeJob({
+      company: org.company,
+      source: 'workday',
+      title,
+      url: `${org.base}/en-US/${org.site}${posting.externalPath}`,
+      location: info.location ?? posting.locationsText ?? '',
+      postedAt: workdayDate(posting.postedOn, info.startDate),
+      type: bullet[0] ?? '',
+      tags: bullet.slice(1, 3),
+      description: plainText(info.jobDescription ?? '', 3200),
+    })
   })
 
   await sleep(200)
@@ -187,102 +231,169 @@ async function fromWorkday(config: WorkdayConfig): Promise<Draft[]> {
 
 /* ----------------------------------------------------------------- BambooHR */
 
-type BambooConfig = { company: string; subdomain: string; fallbackLocation: string }
+type BambooOrg = { company: string; subdomain: string; fallbackLocation: string }
 
-const BAMBOO_ORGS: BambooConfig[] = [
+const BAMBOO_ORGS: BambooOrg[] = [
   { company: 'Human Appeal', subdomain: 'humanappeal', fallbackLocation: 'United Kingdom' },
+  { company: 'Human Concern International', subdomain: 'hci', fallbackLocation: 'Canada' },
 ]
 
-async function fromBamboo(config: BambooConfig): Promise<Draft[]> {
-  const data = await getJson<{ meta: { totalCount: number }; result: any[] }>(
-    `https://${config.subdomain}.bamboohr.com/careers/list`,
-  )
+async function fromBamboo(org: BambooOrg): Promise<Draft[]> {
+  const data = await getJson<{ meta: { totalCount: number }; result: any[] }>(`https://${org.subdomain}.bamboohr.com/careers/list`)
   if (!data?.result?.length) return []
 
   const drafts = await mapLimit(data.result, 4, async (row): Promise<Draft | null> => {
     const title: string = row.jobOpeningName ?? ''
     if (!title) return null
 
-    const url = `https://${config.subdomain}.bamboohr.com/careers/${row.id}`
+    const url = `https://${org.subdomain}.bamboohr.com/careers/${row.id}`
     const html = await getText(url)
-    const description = html ? plainText(metaDescription(html) ?? '', 900) : ''
-
+    const description = html ? metaDescription(html) ?? '' : ''
     const city = row.location?.city ?? ''
     const state = row.location?.state ?? ''
     const remote = row.isRemote === true || row.locationType === '1'
-    const location = remote ? 'Remote' : [city, state].filter(Boolean).join(', ') || config.fallbackLocation
     const department: string = row.departmentLabel ?? ''
 
-    return {
-      key: jobKey(config.company, title),
-      job: {
-        id: `bh-${stableId(url)}`,
-        title,
-        company: config.company,
-        url,
-        source: 'bamboohr',
-        postedAt: null,
-        location,
-        salary: salaryFrom(description),
-        type: row.employmentStatusLabel ?? '',
-        tags: department ? [department] : [],
-        excerpt: description.slice(0, 240),
-        description,
-        family: classifyFamily(title, department ? [department] : []),
-        region: classifyRegion(`${location}`, [city, state].filter(Boolean)),
-      },
-    }
+    return makeJob({
+      company: org.company,
+      source: 'bamboohr',
+      title,
+      url,
+      location: remote ? 'Remote' : [city, state].filter(Boolean).join(', ') || org.fallbackLocation,
+      type: row.employmentStatusLabel ?? '',
+      tags: department ? [department] : [],
+      description,
+      excerpt: description,
+    })
   })
 
   await sleep(200)
   return drafts.filter((draft): draft is Draft => draft !== null)
 }
 
-/* ------------------------------------------------------------ Muslim Hands */
+/* ----------------------------------------------------------------- Workable */
 
-const MUSLIM_HANDS = {
-  company: 'Muslim Hands',
-  url: 'https://muslimhands.org.uk/get-involved/vacancies',
-  origin: 'https://muslimhands.org.uk',
-  fallbackLocation: 'United Kingdom',
+type WorkableOrg = { company: string; account: string; fallbackLocation: string }
+
+const WORKABLE_ORGS: WorkableOrg[] = [
+  { company: 'READ Foundation', account: 'readfoundationuk', fallbackLocation: 'United Kingdom' },
+]
+
+async function fromWorkable(org: WorkableOrg): Promise<Draft[]> {
+  const data = await getJson<{ name: string; jobs: any[] }>(`https://apply.workable.com/api/v1/widget/accounts/${org.account}?details=true`)
+  if (!data?.jobs?.length) return []
+
+  return data.jobs.map((job) => {
+    const city = job.location?.city ?? ''
+    const country = job.location?.country ?? ''
+    return makeJob({
+      company: org.company,
+      source: 'workable',
+      title: job.title ?? '',
+      url: job.url ?? `https://apply.workable.com/${org.account}/j/${job.shortcode}/`,
+      location: [city, country].filter(Boolean).join(', ') || (job.telecommuting ? 'Remote' : org.fallbackLocation),
+      type: job.employment_type ?? '',
+      tags: job.department ? [job.department] : [],
+      description: plainText(job.description ?? job.requirements ?? '', 3200),
+      excerpt: job.shortDescription ?? '',
+      postedAt: job.published_on ? new Date(`${job.published_on}T12:00:00Z`).toISOString() : null,
+    })
+  })
 }
 
-async function fromMuslimHands(): Promise<Draft[]> {
-  const html = await getText(MUSLIM_HANDS.url)
+/* --------------------------------------------------------------------- HTML */
+
+type HtmlOrg = {
+  company: string
+  source: JobSource
+  url: string
+  fallbackLocation: string
+  find: (html: string) => { title: string; url: string; blurb?: string }[]
+}
+
+/** Muslim Hands UK: repeating <article class="Card"> blocks. */
+const muslimHandsUk: HtmlOrg = {
+  company: 'Muslim Hands',
+  source: 'muslimhands',
+  url: 'https://muslimhands.org.uk/get-involved/vacancies',
+  fallbackLocation: 'United Kingdom',
+  find(html) {
+    const found: { title: string; url: string; blurb?: string }[] = []
+    for (const block of html.split(/<article class="Card">/i).slice(1)) {
+      const title = block.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1]
+      const blurb = block.match(/<div class="Prose">\s*<p[^>]*>([\s\S]*?)<\/p>/i)?.[1]
+      const path = block.match(/href="(\/get-involved\/vacancies\/[^"]+)"/i)?.[1]
+      if (!title || !path) continue
+      found.push({
+        title: plainText(title, 160),
+        url: `https://muslimhands.org.uk${path}`,
+        blurb: plainText(blurb ?? '', 240),
+      })
+    }
+    return found
+  },
+}
+
+/** Muslim Hands Canada: heading followed by its detail link. */
+const muslimHandsCanada: HtmlOrg = {
+  company: 'Muslim Hands Canada',
+  source: 'muslimhands',
+  url: 'https://muslimhands.ca/about-us/careers',
+  fallbackLocation: 'Canada',
+  find(html) {
+    const found: { title: string; url: string }[] = []
+    const pattern = /<h3[^>]*>([^<]{3,90})<\/h3>([\s\S]{0,900}?)href="\/about-us\/careers\/([a-z0-9-]+)"/gi
+    for (const match of html.matchAll(pattern)) {
+      const title = match[1].trim()
+      if (!title || /^(menu|search)$/i.test(title)) continue
+      found.push({ title, url: `https://muslimhands.ca/about-us/careers/${match[3]}` })
+    }
+    return found
+  },
+}
+
+/** Green Lane Masjid encodes each role in its application-form link. */
+const greenLaneMasjid: HtmlOrg = {
+  company: 'Green Lane Masjid',
+  source: 'muslimhands',
+  url: 'https://greenlanemasjid.org/careers',
+  fallbackLocation: 'Birmingham, United Kingdom',
+  find(html) {
+    const found: { title: string; url: string }[] = []
+    const seen = new Set<string>()
+    for (const match of html.matchAll(/job_title=([^"'&]{3,90})/gi)) {
+      const raw = match[1].trim()
+      const title = cleanTitle(decodeURIComponent(raw).replace(/[-_]+/g, ' '))
+      if (title.length < 4 || !/[a-z]/i.test(title) || seen.has(title.toLowerCase())) continue
+      seen.add(title.toLowerCase())
+      found.push({
+        title,
+        url: `https://greenlanemasjid.org/website-vacancy-application-form/?job_title=${encodeURIComponent(title)}`,
+      })
+    }
+    return found
+  },
+}
+
+const HTML_ORGS: HtmlOrg[] = [muslimHandsUk, muslimHandsCanada, greenLaneMasjid]
+
+async function fromHtml(org: HtmlOrg): Promise<Draft[]> {
+  const html = await getText(org.url)
   if (!html) return []
 
-  const rows: { title: string; blurb: string; path: string }[] = []
-  for (const block of html.split(/<article class="Card">/i).slice(1)) {
-    const title = block.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1]
-    const blurb = block.match(/<div class="Prose">\s*<p[^>]*>([\s\S]*?)<\/p>/i)?.[1]
-    const path = block.match(/href="(\/get-involved\/vacancies\/[^"]+)"/i)?.[1]
-    if (!title || !path) continue
-    rows.push({ title: plainText(title, 160), blurb: plainText(blurb ?? '', 240), path })
-  }
-
+  const rows = org.find(html)
   const drafts = await mapLimit(rows, 3, async (row): Promise<Draft> => {
-    const url = `${MUSLIM_HANDS.origin}${row.path}`
-    const page = await getText(url)
-    const description = page ? plainText(metaDescription(page) ?? '', 900) : row.blurb
-    return {
-      key: jobKey(MUSLIM_HANDS.company, row.title),
-      job: {
-        id: `mh-${stableId(url)}`,
-        title: row.title,
-        company: MUSLIM_HANDS.company,
-        url,
-        source: 'muslimhands',
-        postedAt: null,
-        location: MUSLIM_HANDS.fallbackLocation,
-        salary: salaryFrom(`${row.blurb} ${description}`),
-        type: '',
-        tags: [],
-        excerpt: (row.blurb || description).slice(0, 240),
-        description: row.blurb || description,
-        family: classifyFamily(row.title, [row.blurb]),
-        region: classifyRegion(MUSLIM_HANDS.fallbackLocation),
-      },
-    }
+    const page = await getText(row.url)
+    const description = page ? plainText(metaDescription(page) ?? '', 900) : row.blurb ?? ''
+    return makeJob({
+      company: org.company,
+      source: org.source,
+      title: cleanTitle(row.title),
+      url: row.url,
+      location: org.fallbackLocation,
+      description: description || row.blurb || '',
+      excerpt: row.blurb || description,
+    })
   })
 
   await sleep(200)
@@ -294,18 +405,22 @@ async function fromMuslimHands(): Promise<Draft[]> {
 async function main() {
   console.log('Fetching vacancies from Muslim-led organisations…')
 
-  const [workday, bamboo, hands] = await Promise.all([
-    Promise.all(WORKDAY_ORGS.map(fromWorkday)),
-    Promise.all(BAMBOO_ORGS.map(fromBamboo)),
-    fromMuslimHands(),
+  const [workday, bamboo, workable, html] = await Promise.all([
+    Promise.all(WORKDAY_ORGS.map((org) => fromWorkday(org))),
+    Promise.all(BAMBOO_ORGS.map((org) => fromBamboo(org))),
+    Promise.all(WORKABLE_ORGS.map((org) => fromWorkable(org))),
+    Promise.all(HTML_ORGS.map((org) => fromHtml(org))),
   ])
 
-  const all: Draft[] = [...workday.flat(), ...bamboo.flat(), ...hands]
-  for (const group of [...workday, ...bamboo]) {
-    const company = group[0]?.job.company
-    if (company) console.log(`  ${company}: ${group.length} roles`)
-  }
-  console.log(`  ${MUSLIM_HANDS.company}: ${hands.length} roles`)
+  const groups: { company: string; drafts: Draft[] }[] = [
+    ...workday.map((drafts, index) => ({ company: WORKDAY_ORGS[index].company, drafts })),
+    ...bamboo.map((drafts, index) => ({ company: BAMBOO_ORGS[index].company, drafts })),
+    ...workable.map((drafts, index) => ({ company: WORKABLE_ORGS[index].company, drafts })),
+    ...html.map((drafts, index) => ({ company: HTML_ORGS[index].company, drafts })),
+  ]
+
+  for (const group of groups) console.log(`  ${group.company}: ${group.drafts.length} roles`)
+  const all = groups.flatMap((group) => group.drafts).filter((draft) => keepTitle(draft.job.title))
 
   if (all.length === 0) {
     console.error('No vacancies fetched. Keeping the existing public/jobs.json untouched.')
@@ -315,9 +430,7 @@ async function main() {
   const merged = new Map<string, Job>()
   for (const draft of all) {
     const existing = merged.get(draft.key)
-    if (!existing || (draft.job.description.length > existing.description.length && existing.postedAt === null)) {
-      merged.set(draft.key, draft.job)
-    }
+    if (!existing || draft.job.description.length > existing.description.length) merged.set(draft.key, draft.job)
   }
 
   const jobs = [...merged.values()].sort((a, b) => {
@@ -333,31 +446,39 @@ async function main() {
     if (country) countries.add(country)
   }
 
+  const sourceUrl: Record<string, string> = {
+    'Islamic Relief Canada': 'https://islamicreliefcanada.org',
+    'Human Appeal': 'https://humanappeal.org.uk',
+    'Human Concern International': 'https://humanconcern.org',
+    'READ Foundation': 'https://readfoundation.org.uk',
+    'Muslim Hands': 'https://muslimhands.org.uk',
+    'Muslim Hands Canada': 'https://muslimhands.ca',
+    'Green Lane Masjid': 'https://greenlanemasjid.org',
+  }
+  const sourceNote: Record<string, string> = {
+    'Islamic Relief Canada': 'Public Workday careers feed. Apply links stay on Workday.',
+    'Human Appeal': 'Public BambooHR vacancy list. Apply links stay on BambooHR.',
+    'Human Concern International': 'Public BambooHR vacancy list. Apply links stay on BambooHR.',
+    'READ Foundation': 'Public Workable jobs feed. Apply links stay on Workable.',
+    'Muslim Hands': 'Vacancies page, linked through to the organisation’s own listing.',
+    'Muslim Hands Canada': 'Careers page, linked through to the organisation’s own listing.',
+    'Green Lane Masjid': 'Careers page; the apply link opens the masjid’s own application form.',
+  }
+  const listedCompanies = [...new Set(jobs.map((job) => job.company))]
+
   const dataset: Dataset = {
     generatedAt: new Date().toISOString(),
     counts: {
       jobs: jobs.length,
-      organisations: new Set(jobs.map((job) => job.company)).size,
+      organisations: listedCompanies.length,
       countries: countries.size,
       salaryShown: jobs.filter((job) => job.salary !== null).length,
     },
-    sources: [
-      {
-        name: 'Islamic Relief Canada',
-        url: 'https://islamicreliefcanada.org',
-        note: 'Workday careers site, read through its public job-board feed.',
-      },
-      {
-        name: 'Human Appeal',
-        url: 'https://humanappeal.org.uk',
-        note: 'BambooHR careers site, read through its public vacancy list. Apply links go to BambooHR.',
-      },
-      {
-        name: 'Muslim Hands',
-        url: 'https://muslimhands.org.uk',
-        note: 'Vacancies page, linked through to the organisation’s own listing.',
-      },
-    ],
+    sources: listedCompanies.map((company) => ({
+      name: company,
+      url: sourceUrl[company] ?? '',
+      note: sourceNote[company] ?? 'Read from the organisation’s own careers page.',
+    })),
     jobs,
   }
 

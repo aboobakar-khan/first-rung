@@ -22,29 +22,27 @@ const rules = [
   },
 ]
 
-const sources = [
+const fallbackSources = [
   {
     name: 'Islamic Relief Canada',
     url: 'https://islamicreliefcanada.org',
-    what: 'Roles, locations, employment type and posting date.',
-    note: 'Read through the public Workday careers feed; apply links stay on Workday.',
+    note: 'Public Workday careers feed; apply links stay on Workday.',
   },
   {
     name: 'Human Appeal',
     url: 'https://humanappeal.org.uk',
-    what: 'Vacancy titles, departments, locations and contract type.',
-    note: 'Read through its public BambooHR vacancy list; apply links stay on BambooHR.',
+    note: 'Public BambooHR vacancy list; apply links stay on BambooHR.',
   },
   {
     name: 'Muslim Hands',
     url: 'https://muslimhands.org.uk',
-    what: 'Vacancy titles and summaries.',
-    note: 'Read from the vacancies page; every role links to the organisation’s own listing.',
+    note: 'Vacancies page, linked to the organisation’s own listing.',
   },
 ]
 
 export function Method() {
   const { data } = useDataset()
+  const sources = data?.sources?.length ? data.sources : fallbackSources
 
   return (
     <div className="mx-auto max-w-[980px] px-5 py-14 sm:px-8 sm:py-20">
@@ -70,8 +68,8 @@ export function Method() {
       <section className="mt-14 border-t border-line pt-10">
         <h2 className="font-display text-[clamp(24px,3vw,32px)]">Where the roles come from</h2>
         <p className="mt-3 max-w-[62ch] text-[14px] leading-relaxed text-muted">
-          Three organisations today, each read from the careers system it already publishes for applicants. Amanah Jobs is
-          an index: the listing, the application and the hiring decision belong to the employer.
+          Every organisation below is read from the careers system it already publishes for applicants. Amanah Jobs is an
+          index: the listing, the application and the hiring decision belong to the employer.
         </p>
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-line">
@@ -79,8 +77,7 @@ export function Method() {
             <thead className="bg-surface-2/60 text-[11.5px] tracking-[0.1em] text-faint uppercase">
               <tr>
                 <th className="px-4 py-3 font-normal">Organisation</th>
-                <th className="px-4 py-3 font-normal">What it gives us</th>
-                <th className="px-4 py-3 font-normal">Attribution</th>
+                <th className="px-4 py-3 font-normal">How its roles are read</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-line">
@@ -91,7 +88,6 @@ export function Method() {
                       {source.name}
                     </a>
                   </td>
-                  <td className="px-4 py-4 align-top text-muted">{source.what}</td>
                   <td className="px-4 py-4 align-top text-muted">{source.note}</td>
                 </tr>
               ))}
@@ -134,9 +130,9 @@ export function Method() {
       <section className="mt-14 rounded-card border border-line bg-fg p-8 text-bg">
         <h2 className="font-display text-[clamp(24px,3vw,32px)] text-balance">The honest limitation</h2>
         <p className="mt-3 max-w-[62ch] text-[13.5px] leading-relaxed text-bg/70">
-          A curated list is only as good as the names on it. Three organisations is a start, not a sector: UK charities and
-          Canadian relief work are well covered, and Islamic schools, masjids and halal businesses mostly are not yet. If
-          your organisation publishes openings somewhere the script can read, send the link and it gets added.
+          A curated list is only as good as the names on it. A handful of organisations is a start, not a sector: UK and
+          Canadian charities are well covered, and Islamic schools, masjids and halal businesses mostly are not yet. If your
+          organisation publishes openings somewhere the script can read, send the link and it gets added.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link to="/" className="inline-flex h-10 items-center gap-2 rounded-full bg-bg px-4 text-[13px] font-medium text-fg">
