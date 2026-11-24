@@ -1,79 +1,89 @@
-# First Rung
+# Amanah Jobs
 
-An entry-level remote tech job board that keeps itself up to date.
+A board of roles at Muslim-led organisations — masjids, Islamic schools,
+charities, Islamic finance and halal businesses — that keeps itself up to date.
 
-A script pulls about a thousand listings from two public job feeds each day,
-scores every one for whether it is genuinely a first tech job, drops the senior
-ones, and writes the result to `public/jobs.json`. The site reads that file, so
-the board, the JSON API and the dataset are all the same data.
+A script reads each organisation's own careers system, normalises the openings,
+groups them by category and writes `public/jobs.json`. The site reads that file,
+so the board, the JSON API and the dataset are all the same data.
 
-- **Board** — search, role family, region and salary filters, fit score.
-- **Role page** — salary, location, type, why it scored what it scored, apply
-  link to the source, related roles.
-- **Employers** — the paid placement offer and what we check before a role is
-  accepted.
-- **How it works** — the filter rules, sources and their terms, freshness.
+- **Board** — search, category, region and salary filters.
+- **Role page** — location, type, salary when the employer states it, the
+  employer's own description, and an apply link that goes to them.
+- **Employers** — the paid placement offer and what is checked first.
+- **How it works** — the rules, the sources and the honest limits.
 
 ## Run it
 
 ```sh
 bun install
-bun run ingest     # refresh public/jobs.json from the feeds (takes ~1 min)
+bun run ingest     # refresh public/jobs.json from the employers' careers systems
 bun run dev        # http://127.0.0.1:5173
-bun run build      # dist/client + dist/first-rung/index.js
+bun run build      # dist/client + dist/amanah_jobs/index.js
 bun run typecheck
 bun test tests
 ```
 
 `public/jobs.json` is committed, so the site renders without network access.
-Run `bun run ingest` on a schedule (cron, GitHub Action, or the host's scheduler)
-to keep it honest — once a day is enough; both feeds cache for an hour.
+`bun run ingest` runs on a schedule (the local launchd job and the GitHub
+Action both call it) — once a day is enough.
 
-## How the filter works
+## Where the roles come from
 
-`src/lib/score.ts` is the product. It returns `null` unless the listing is a
-tech role, then starts at 38 and moves:
+| Organisation | Source | Notes |
+| --- | --- | --- |
+| Islamic Relief Canada | Workday public careers feed | Apply links stay on Workday |
+| Human Appeal | BambooHR public vacancy list | Apply links stay on BambooHR |
+| Muslim Hands | Vacancy page | Links to the organisation's own listing |
 
-| Signal | Effect |
-| --- | --- |
-| Source marks it entry-level | +34 |
-| Junior / graduate / intern / trainee title | +18 |
-| Body mentions no experience, bootcamp, 0-2 years | +9 |
-| Salary is stated | +3 |
-| Senior, staff, lead, principal, manager in title | −34 |
-| Body asks for 3+ years | −18 |
-| Postgraduate degree required | −10 |
+Three source adapters live in `scripts/ingest.ts` (`fromWorkday`,
+`fromBamboo`, `fromMuslimHands`). Adding an organisation means adding its
+careers system to the matching list; nothing else changes.
 
-Anything under 35 is dropped, as is duplicate company+title pairs across
-sources. The tests in `tests/score.test.ts` pin that behaviour.
+Deliberately **not** used: other Muslim job boards and aggregators. Copying
+their listings is not ours to do, and ReliefWeb's jobs API now needs an
+approved application name.
 
-## Sources and their terms
+## How a role is classified
 
-- **Himalayas** — free public API. Apply links must use its `applicationLink`,
-  Himalayas must be visibly credited, and listings must not be passed on to
-  other boards. Both are handled in `scripts/ingest.ts` and on the role page.
-- **Remote OK** — every role links back to its Remote OK listing with a followed
-  link and names Remote OK as the source.
-- **Remotive is not used.** Its terms forbid republishing its listings on
-  third-party job sites.
+`src/lib/score.ts` holds the taxonomy: `classifyFamily` (imam and Islamic
+studies, education, fundraising, programmes, finance, comms, operations, IT,
+health) and `classifyRegion`. Both are pure and covered by
+`tests/score.test.ts`. There is no "fit" score — a curated list does not need
+one, and a score would only invite questions about how it was measured.
 
-If you fork this, re-read each provider's terms before adding a source.
+Sources that publish no date produce `postedAt: null`, and the UI says nothing
+rather than inventing an age.
 
 ## How it makes money
 
 Featured placements, sold by hand: `$199` for 30 days at the top of the board,
-`$499` for three, `$99` for a digest sponsorship once the list is large enough.
+`$499` for three, `$99` for an email sponsorship once the list is large enough.
 Sold slots go in `src/data/featured.ts`; until one is sold the board shows a
 house ad pointing at `/employers`.
 
-Honest status: this is an inventory-led business, so revenue follows traffic.
-The automated part is supply — the board stays full and fresh without anyone
-touching it. The manual part is demand — selling those first few placements and
-building the Monday email list. Nothing here promises passive income; it
-promises that the repetitive work is done for you.
+Honest status: revenue follows traffic. The automated part is supply — the board
+stays current without anyone touching it. The manual part is demand — selling
+the first placements and growing the email list.
 
 ## Deploy
 
-`deploy.json` points at the build output. Build, then deploy with the
-`sites_deploy` tool. `/api/jobs` serves the dataset with CORS so it can be used
-as an API; `/api/health` is there for uptime checks.
+Two deploy paths are configured and both build first:
+
+```sh
+bun run build
+./node_modules/.bin/wrangler deploy --config wrangler.deploy.jsonc
+```
+
+`wrangler.deploy.jsonc` is separate from `wrangler.jsonc` (which the Vite plugin
+uses for dev) because `scripts/postbuild.mjs` strips source maps and the
+generated config demands them.
+
+- `.github/workflows/refresh-jobs.yml` — daily ingest, commit, build and deploy.
+  Needs `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets.
+- `scripts/refresh.sh` + a launchd job (`dev.firstrung.refresh`, 06:17 local) —
+  the same pipeline on this machine, credentials kept in
+  `~/.config/firstrung/cloudflare.env`.
+
+`/api/jobs` serves the dataset with CORS so it can be used as an API;
+`/api/health` exists for uptime checks.

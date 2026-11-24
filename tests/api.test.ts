@@ -1,7 +1,7 @@
 import { expect, test } from 'bun:test'
 import app from '../src/worker/index'
 
-const dataset = { generatedAt: new Date().toISOString(), counts: { jobs: 1, companies: 1, countries: 0, salaryShown: 0 }, sources: [], jobs: [] }
+const dataset = { generatedAt: new Date().toISOString(), counts: { jobs: 1, organisations: 1, countries: 0, salaryShown: 0 }, sources: [], jobs: [] }
 
 function assets(handler?: () => Response) {
   return {

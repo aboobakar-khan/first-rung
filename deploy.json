@@ -1,7 +1,7 @@
 {
   "entrypoint": "index.js",
   "compatibilityDate": "2026-09-29",
-  "modules": [{ "name": "index.js", "type": "esm", "path": "./dist/first_rung/index.js" }],
+  "modules": [{ "name": "index.js", "type": "esm", "path": "./dist/amanah_jobs/index.js" }],
   "assetsDirectory": "./dist/client",
   "spa": true
 }

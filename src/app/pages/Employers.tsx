@@ -12,35 +12,35 @@ const plans = [
     unit: 'per role, 30 days',
     points: [
       'Pinned above the results on the board',
-      'Included in one Monday email',
+      'Included in one Friday email',
       'Labelled clearly as sponsored',
-      'We check the role is genuinely entry-level',
+      'We check the role and the application link first',
     ],
     cta: 'Reserve a slot',
     highlight: true,
   },
   {
-    name: 'Launch bundle',
+    name: 'Ramadan bundle',
     price: '$499',
     unit: 'three roles, 30 days',
-    points: ['Three featured roles', 'Digest mention each week for a month', 'Same fit check on every role'],
+    points: ['Three featured roles', 'Email mention each week for a month', 'Same check on every role'],
     cta: 'Ask about the bundle',
   },
   {
-    name: 'Digest sponsor',
+    name: 'Email sponsor',
     price: '$99',
     unit: 'per issue',
-    points: ['One line at the top of the Monday email', 'No job listing needed', 'Runs once the list passes 1,000 readers'],
+    points: ['One line at the top of the Friday email', 'No job listing needed', 'Runs once the list passes 1,000 readers'],
     cta: 'Get in line',
   },
 ]
 
 const checks = [
-  'The role is remote or hybrid, and open to people at the start of their career.',
-  'The title is not senior, staff, lead or principal.',
-  'The listing does not require more than roughly two years of experience.',
-  'The application link works and goes to the employer or their ATS.',
-  'We will turn down roles that fail these checks, and refund if we already took payment.',
+  'The employer is a Muslim-led organisation: a masjid, Islamic school, charity, Islamic finance or halal business.',
+  'The role is real and open, and the application link goes to the employer.',
+  'Location, contract type and salary are stated where the employer knows them.',
+  'Job seekers never pay anything, and we take no cut of anyone’s salary.',
+  'We turn down roles that fail these checks, and refund if payment was already taken.',
 ]
 
 export function Employers() {
@@ -50,17 +50,17 @@ export function Employers() {
     <div className="mx-auto max-w-[1160px] px-5 py-14 sm:px-8 sm:py-20">
       <p className="text-[12px] tracking-[0.16em] text-muted uppercase">For employers</p>
       <h1 className="font-display mt-5 max-w-[20ch] text-[clamp(38px,6vw,72px)] text-balance">
-        Hire someone on their <span className="text-accent">first rung</span>.
+        Fill a role with someone who <span className="text-accent">wants</span> to be there.
       </h1>
       <p className="mt-6 max-w-[58ch] text-[15.5px] leading-relaxed text-muted text-pretty">
-        First Rung is a small board for entry-level remote tech roles. The people reading it are looking for exactly one
-        thing: a role that will take them without five years of experience first.
+        Amanah Jobs lists roles at Muslim-led organisations. The people reading it are not scrolling past — they are looking
+        for work that serves the ummah, in a masjid, a school, a charity or a halal business.
       </p>
 
       <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
         {[
           { label: 'Live roles indexed', value: data ? data.counts.jobs : '—' },
-          { label: 'Companies', value: data ? data.counts.companies : '—' },
+          { label: 'Organisations', value: data ? data.counts.organisations : '—' },
           { label: 'Rebuilt', value: 'Daily' },
           { label: 'Reader cost', value: 'Free' },
         ].map((stat) => (
@@ -72,9 +72,9 @@ export function Employers() {
       </div>
 
       <p className="mt-4 max-w-[70ch] text-[12.5px] leading-relaxed text-faint">
-        Straight answer on traffic: the board is new, so these are inventory numbers, not audience numbers. Pricing below
-        reflects that — it is founding pricing for the first handful of employers, and slots are sold by hand until the
-        list is big enough to justify more.
+        Straight answer on traffic: the board is new, so these are inventory numbers, not audience numbers. Pricing reflects
+        that — founding pricing for the first handful of organisations, sold by hand until the list is big enough to justify
+        more.
       </p>
 
       <section className="mt-14">
@@ -97,7 +97,7 @@ export function Employers() {
                 ))}
               </ul>
               <a
-                href={`mailto:${MAIL}?subject=${encodeURIComponent(`First Rung — ${plan.name}`)}&body=${encodeURIComponent('Role title:\nCompany:\nLink:\nLocation:\nSalary range:\n\nAnything else:')}`}
+                href={`mailto:${MAIL}?subject=${encodeURIComponent(`Amanah Jobs — ${plan.name}`)}&body=${encodeURIComponent('Organisation:\nRole title:\nLink:\nLocation:\nSalary range:\n\nAnything else:')}`}
                 className={`mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-full text-[13.5px] font-medium transition-colors ${
                   plan.highlight ? 'bg-bg text-fg hover:bg-white' : 'border border-fg text-fg hover:bg-fg hover:text-bg'
                 }`}
@@ -114,7 +114,7 @@ export function Employers() {
         <div>
           <h2 className="font-display text-[clamp(26px,3vw,34px)]">What we check before a role goes up</h2>
           <p className="mt-3 text-[14px] leading-relaxed text-muted">
-            The whole value of this board is that a reader can trust the filter. A paid placement skips the queue, not the
+            The whole value of this board is that a reader can trust the list. A paid placement skips the queue, not the
             checks.
           </p>
           <ul className="mt-6 space-y-3">
@@ -131,29 +131,31 @@ export function Employers() {
           <h2 className="font-display text-[26px]">How it works in practice</h2>
           <ol className="mt-4 space-y-4 text-[13.5px] leading-relaxed text-muted">
             <li>
-              <span className="font-medium text-fg">1. You email the role.</span> Title, company, link, location, salary
+              <span className="font-medium text-fg">1. You email the role.</span> Organisation, title, link, location, salary
               range.
             </li>
             <li>
-              <span className="font-medium text-fg">2. We check it by hand.</span> Usually within one working day. If it is
-              not entry-level, we say so.
+              <span className="font-medium text-fg">2. We check it by hand.</span> Usually within one working day. If it is not
+              a role at a Muslim-led organisation, we say so.
             </li>
             <li>
               <span className="font-medium text-fg">3. You pay by invoice.</span> No card checkout yet — this is deliberate
               while volume is low.
             </li>
             <li>
-              <span className="font-medium text-fg">4. It goes live for 30 days.</span> You get a note when it is up, and
-              the option to swap the role once.
+              <span className="font-medium text-fg">4. It goes live for 30 days.</span> You get a note when it is up, and the
+              option to swap the role once.
             </li>
           </ol>
           <a
-            href={`mailto:${MAIL}?subject=${encodeURIComponent('First Rung — role enquiry')}&body=${encodeURIComponent('Role title:\nCompany:\nLink:\nLocation:\nSalary range:\n\nAnything else:')}`}
+            href={`mailto:${MAIL}?subject=${encodeURIComponent('Amanah Jobs — role enquiry')}&body=${encodeURIComponent('Organisation:\nRole title:\nLink:\nLocation:\nSalary range:\n\nAnything else:')}`}
             className="mt-6 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-fg text-[13.5px] font-medium text-bg hover:bg-[#2b2925]"
           >
             <Mail className="size-4" /> {MAIL}
           </a>
-          <p className="mt-3 text-center text-[11.5px] text-faint">Replace this address with your own before launch.</p>
+          <p className="mt-3 text-center text-[11.5px] text-faint">
+            Organisations already on the board: your roles are collected automatically, free.
+          </p>
         </div>
       </section>
 
@@ -163,11 +165,11 @@ export function Employers() {
           {[
             {
               q: 'Will readers know it is paid?',
-              a: 'Yes. Every placement is labelled as sponsored and never mixed into the ranked results as if it were earned.',
+              a: 'Yes. Every placement is labelled as sponsored and never mixed into the results as if it were earned.',
             },
             {
-              q: 'Can I post a mid-level role?',
-              a: 'Not as a listing. The board only shows roles that are realistically open to people at the start of their career.',
+              q: 'Is my organisation already listed?',
+              a: 'If it is on the curated list, its open roles are collected daily at no cost. Featured placement only buys the top of the board and an email mention.',
             },
             {
               q: 'Do you guarantee applicants?',

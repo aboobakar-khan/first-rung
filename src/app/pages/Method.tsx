@@ -5,20 +5,41 @@ import { updatedAgo, useDataset } from '../../lib/jobs'
 
 const rules = [
   {
-    title: 'A real tech role',
-    body: 'The title or its tags have to describe engineering, data, QA, DevOps, security or design work. Sales, support-heavy and clinical roles are dropped even when they are entry-level.',
+    title: 'A fixed list of Muslim-led employers',
+    body: 'Masjids, Islamic schools and seminaries, Muslim charities, Islamic finance and halal businesses. A role is only here because its employer is on that list, not because a keyword matched.',
   },
   {
-    title: 'Entry-level, checked twice',
-    body: 'We only query the feeds for listings they mark as entry-level, then score each one again. Senior, staff, principal, lead and manager titles are removed outright.',
+    title: 'Read from the employer’s own careers page',
+    body: 'Each organisation publishes openings through its own hiring system. The script reads that system directly, so the listing is the employer’s own text, not a copy of a copy.',
   },
   {
-    title: 'Experience requirements read, not assumed',
-    body: 'Listings that ask for three or more years, a PhD, or clearly senior ownership lose enough points to fall off the board. Internships and graduate programmes score highly.',
+    title: 'Sorted by category, not by a score',
+    body: 'Roles are grouped as imam and Islamic studies, education, fundraising, programmes, finance, comms, operations, IT or health, so you can go straight to the work you do.',
   },
   {
     title: 'One copy of each role',
-    body: 'The same job posted by several boards appears once, keeping the version with the strongest fit and the most useful apply link.',
+    body: 'The same opening found twice appears once, keeping the version with the fuller description and the working application link. Closed roles drop off on the next rebuild.',
+  },
+]
+
+const sources = [
+  {
+    name: 'Islamic Relief Canada',
+    url: 'https://islamicreliefcanada.org',
+    what: 'Roles, locations, employment type and posting date.',
+    note: 'Read through the public Workday careers feed; apply links stay on Workday.',
+  },
+  {
+    name: 'Human Appeal',
+    url: 'https://humanappeal.org.uk',
+    what: 'Vacancy titles, departments, locations and contract type.',
+    note: 'Read through its public BambooHR vacancy list; apply links stay on BambooHR.',
+  },
+  {
+    name: 'Muslim Hands',
+    url: 'https://muslimhands.org.uk',
+    what: 'Vacancy titles and summaries.',
+    note: 'Read from the vacancies page; every role links to the organisation’s own listing.',
   },
 ]
 
@@ -29,10 +50,10 @@ export function Method() {
     <div className="mx-auto max-w-[980px] px-5 py-14 sm:px-8 sm:py-20">
       <p className="text-[12px] tracking-[0.16em] text-muted uppercase">The method</p>
       <h1 className="font-display mt-5 max-w-[24ch] text-[clamp(36px,5.6vw,64px)] text-balance">
-        How a listing earns a place here.
+        How a role earns a place here.
       </h1>
       <p className="mt-6 max-w-[62ch] text-[15.5px] leading-relaxed text-muted text-pretty">
-        This board is assembled by a script, not by a person reading job ads all day. That is the point: it can be rebuilt
+        This board is assembled by a script, not by someone reading job ads all day. That is the point: it can be rebuilt
         every day without anyone getting bored of it. Here is exactly what the script does.
       </p>
 
@@ -47,49 +68,41 @@ export function Method() {
       </div>
 
       <section className="mt-14 border-t border-line pt-10">
-        <h2 className="font-display text-[clamp(24px,3vw,32px)]">Where the jobs come from</h2>
+        <h2 className="font-display text-[clamp(24px,3vw,32px)]">Where the roles come from</h2>
         <p className="mt-3 max-w-[62ch] text-[14px] leading-relaxed text-muted">
-          Two public feeds, both used under the terms their operators publish. First Rung is an index: the listing, the
-          application and the hiring decision all belong to the source.
+          Three organisations today, each read from the careers system it already publishes for applicants. Amanah Jobs is
+          an index: the listing, the application and the hiring decision belong to the employer.
         </p>
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-line">
           <table className="w-full text-left text-[13px]">
             <thead className="bg-surface-2/60 text-[11.5px] tracking-[0.1em] text-faint uppercase">
               <tr>
-                <th className="px-4 py-3 font-normal">Source</th>
+                <th className="px-4 py-3 font-normal">Organisation</th>
                 <th className="px-4 py-3 font-normal">What it gives us</th>
                 <th className="px-4 py-3 font-normal">Attribution</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-line">
-              <tr>
-                <td className="px-4 py-4 align-top">
-                  <a href="https://himalayas.app/jobs" target="_blank" rel="noopener" className="link-draw font-medium">
-                    Himalayas
-                  </a>
-                </td>
-                <td className="px-4 py-4 align-top text-muted">
-                  Seniority, salary range, location and timezone restrictions, and the application link.
-                </td>
-                <td className="px-4 py-4 align-top text-muted">Apply links go to Himalayas; the source is named on every role.</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-4 align-top">
-                  <a href="https://remoteok.com" target="_blank" rel="noopener" className="link-draw font-medium">
-                    Remote OK
-                  </a>
-                </td>
-                <td className="px-4 py-4 align-top text-muted">Junior-titled roles, tags and salary ranges.</td>
-                <td className="px-4 py-4 align-top text-muted">Every role links back to its Remote OK listing, with a followed link.</td>
-              </tr>
+              {sources.map((source) => (
+                <tr key={source.name}>
+                  <td className="px-4 py-4 align-top">
+                    <a href={source.url} target="_blank" rel="noopener" className="link-draw font-medium">
+                      {source.name}
+                    </a>
+                  </td>
+                  <td className="px-4 py-4 align-top text-muted">{source.what}</td>
+                  <td className="px-4 py-4 align-top text-muted">{source.note}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
 
         <p className="mt-4 text-[12.5px] leading-relaxed text-faint">
-          Remotive is deliberately not used: its API terms forbid republishing its listings on third-party job sites. We would
-          rather have a smaller board than a board built on someone else’s terms being broken.
+          Bigger Muslim job boards exist, and we do not copy them. Republishing another board's listings is not ours to do,
+          and ReliefWeb's job API now requires an approved application name — so the list grows by adding organisations'
+          own careers systems, one at a time.
         </p>
       </section>
 
@@ -121,9 +134,9 @@ export function Method() {
       <section className="mt-14 rounded-card border border-line bg-fg p-8 text-bg">
         <h2 className="font-display text-[clamp(24px,3vw,32px)] text-balance">The honest limitation</h2>
         <p className="mt-3 max-w-[62ch] text-[13.5px] leading-relaxed text-bg/70">
-          A score is a guess. “Entry-level” means different things at different companies, and a role that says no experience
-          can still be looking for a year of it. Use the fit score to decide what to read first, not what to apply to. If a
-          listing looks wrong, the fastest fix is an email, and we will drop it.
+          A curated list is only as good as the names on it. Three organisations is a start, not a sector: UK charities and
+          Canadian relief work are well covered, and Islamic schools, masjids and halal businesses mostly are not yet. If
+          your organisation publishes openings somewhere the script can read, send the link and it gets added.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link to="/" className="inline-flex h-10 items-center gap-2 rounded-full bg-bg px-4 text-[13px] font-medium text-fg">

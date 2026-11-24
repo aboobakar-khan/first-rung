@@ -31,7 +31,7 @@ function NotFound() {
       <p className="text-[12px] tracking-[0.16em] text-faint uppercase">404</p>
       <h1 className="font-display mt-4 text-[clamp(36px,6vw,64px)]">That page isn’t here.</h1>
       <p className="mt-4 max-w-[44ch] text-[15px] leading-relaxed text-muted">
-        The board, the method and the employer pricing all exist. This link does not.
+        The board, the method and the employer page all exist. This link does not.
       </p>
       <Link to="/" className="mt-8 inline-flex h-11 items-center rounded-full bg-fg px-5 text-[14px] font-medium text-bg">
         Go to the board

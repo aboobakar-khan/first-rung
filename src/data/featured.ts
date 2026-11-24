@@ -16,8 +16,8 @@ export const featuredSlots: FeaturedSlot[] = []
 /** The house ad shown while inventory is unsold. */
 export const houseAd = {
   eyebrow: 'Your role here',
-  title: 'Put a job in front of people who are actually looking for a first break.',
-  blurb: 'Featured placements run at the top of the board and in the weekly digest. $199 for 30 days, listed manually.',
+  title: 'Put a vacancy in front of people who want to serve the ummah.',
+  blurb: 'Featured placements run at the top of the board and in the Friday email. $199 for 30 days, listed by hand.',
   cta: 'See employer pricing',
   href: '/employers',
 }

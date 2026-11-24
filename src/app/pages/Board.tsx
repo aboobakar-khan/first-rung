@@ -10,8 +10,6 @@ import { cx } from '../lib/cx'
 
 const PAGE = 20
 
-type Sort = 'fit' | 'new'
-
 function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
@@ -54,7 +52,6 @@ export function Board() {
   const [family, setFamily] = useState<'all' | Family>('all')
   const [region, setRegion] = useState<'all' | Region>('all')
   const [salaryOnly, setSalaryOnly] = useState(false)
-  const [sort, setSort] = useState<Sort>('fit')
   const [limit, setLimit] = useState(PAGE)
 
   const jobs = data?.jobs ?? []
@@ -67,17 +64,20 @@ export function Board() {
 
   const results = useMemo(() => {
     const needle = query.trim().toLowerCase()
-    const filtered = jobs.filter((job) => {
-      if (family !== 'all' && job.family !== family) return false
-      if (region !== 'all' && job.region !== region) return false
-      if (salaryOnly && !job.salary) return false
-      if (needle && !searchable(job).includes(needle)) return false
-      return true
-    })
-    return filtered.sort((a, b) =>
-      sort === 'fit' ? b.fit - a.fit || Date.parse(b.postedAt) - Date.parse(a.postedAt) : Date.parse(b.postedAt) - Date.parse(a.postedAt),
-    )
-  }, [jobs, query, family, region, salaryOnly, sort])
+    return jobs
+      .filter((job) => {
+        if (family !== 'all' && job.family !== family) return false
+        if (region !== 'all' && job.region !== region) return false
+        if (salaryOnly && !job.salary) return false
+        if (needle && !searchable(job).includes(needle)) return false
+        return true
+      })
+      .sort((a, b) => {
+        const at = a.postedAt ? Date.parse(a.postedAt) : 0
+        const bt = b.postedAt ? Date.parse(b.postedAt) : 0
+        return bt - at || a.company.localeCompare(b.company) || a.title.localeCompare(b.title)
+      })
+  }, [jobs, query, family, region, salaryOnly])
 
   const filtersActive = query !== '' || family !== 'all' || region !== 'all' || salaryOnly
   const visible = results.slice(0, limit)
@@ -89,16 +89,16 @@ export function Board() {
           <div>
             <p className="flex items-center gap-2 text-[12px] tracking-[0.16em] text-muted uppercase">
               <span className="inline-block size-1.5 rounded-full bg-accent" />
-              Entry-level only · no senior roles
+              Masjids · schools · charities · Islamic finance
             </p>
             <h1 className="font-display mt-5 text-[clamp(42px,7vw,84px)] text-balance">
-              Your first tech job,
+              Work that serves
               <br />
-              <span className="text-accent">remote</span>.
+              the <span className="text-accent">ummah</span>.
             </h1>
             <p className="mt-6 max-w-[46ch] text-[15.5px] leading-relaxed text-muted text-pretty">
-              Every listing here is pulled from public job feeds, then filtered for roles that actually hire people at the
-              start of their career. No “5+ years required” hiding in the fine print.
+              Every role here is at a Muslim-led organisation — imams and teachers, fundraisers, programme officers,
+              accountants and engineers. Read from the organisations' own careers pages, not copied from another board.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a href="#roles" className="inline-flex h-11 items-center gap-2 rounded-full bg-fg px-5 text-[14px] font-medium text-bg transition-colors hover:bg-[#2b2925]">
@@ -106,7 +106,7 @@ export function Board() {
                 <ArrowUpRight className="size-4" />
               </a>
               <Link to="/how-it-works" className="link-draw inline-flex h-11 items-center text-[14px] text-muted hover:text-fg">
-                How the filter works
+                How roles are chosen
               </Link>
             </div>
           </div>
@@ -117,7 +117,9 @@ export function Board() {
               <p className="text-[12px] text-faint">{data ? updatedAgo(data.generatedAt) : 'loading'}</p>
             </div>
             <p className="font-display mt-3 text-[64px] leading-none tabular-nums">{loading ? '—' : data?.counts.jobs}</p>
-            <p className="mt-1 text-[13.5px] text-muted">open roles at {loading ? '—' : data?.counts.companies} companies</p>
+            <p className="mt-1 text-[13.5px] text-muted">
+              open roles at {loading ? '—' : data?.counts.organisations} organisations
+            </p>
 
             <div className="mt-6 grid grid-cols-3 gap-3 border-t border-line pt-5 text-[12.5px]">
               <div>
@@ -130,20 +132,24 @@ export function Board() {
               </div>
               <div>
                 <p className="text-faint">Sources</p>
-                <p className="mt-1 text-[17px] tabular-nums">2</p>
+                <p className="mt-1 text-[17px] tabular-nums">3</p>
               </div>
             </div>
 
             <p className="mt-5 text-[12px] leading-relaxed text-faint">
               Rebuilt daily from{' '}
-              <a href="https://himalayas.app/jobs" target="_blank" rel="noopener" className="link-draw text-muted">
-                Himalayas
+              <a href={data?.sources[0]?.url ?? 'https://islamicreliefcanada.org'} target="_blank" rel="noopener" className="link-draw text-muted">
+                Islamic Relief Canada
+              </a>
+              ,{' '}
+              <a href={data?.sources[1]?.url ?? 'https://humanappeal.org.uk'} target="_blank" rel="noopener" className="link-draw text-muted">
+                Human Appeal
               </a>{' '}
               and{' '}
-              <a href="https://remoteok.com" target="_blank" rel="noopener" className="link-draw text-muted">
-                Remote OK
+              <a href={data?.sources[2]?.url ?? 'https://muslimhands.org.uk'} target="_blank" rel="noopener" className="link-draw text-muted">
+                Muslim Hands
               </a>
-              . Both are credited on every role.
+              . Apply links go to the employer.
             </p>
           </div>
         </div>
@@ -161,7 +167,7 @@ export function Board() {
                     setQuery(event.target.value)
                     setLimit(PAGE)
                   }}
-                  placeholder="Search role, company or stack"
+                  placeholder="Search role, organisation or city"
                   aria-label="Search roles"
                   className="h-10 w-full rounded-full border border-line-strong bg-surface pr-4 pl-10 text-[14px] placeholder:text-faint focus:border-fg focus:outline-none"
                 />
@@ -177,15 +183,6 @@ export function Board() {
                   options={[
                     { value: 'all', label: 'Anywhere' },
                     ...(Object.keys(REGION_LABELS) as Region[]).map((key) => ({ value: key, label: REGION_LABELS[key] })),
-                  ]}
-                />
-                <Select
-                  label="Sort"
-                  value={sort}
-                  onChange={(value) => setSort(value as Sort)}
-                  options={[
-                    { value: 'fit', label: 'Best fit' },
-                    { value: 'new', label: 'Newest' },
                   ]}
                 />
               </div>
@@ -261,10 +258,10 @@ export function Board() {
                   email.
                 </p>
                 <a
-                  href="mailto:khhnabubakar786@gmail.com?subject=Add%20me%20to%20the%20Monday%20list"
+                  href="mailto:khhnabubakar786@gmail.com?subject=Add%20me%20to%20the%20Friday%20list"
                   className="mt-5 inline-flex h-10 items-center gap-2 rounded-full bg-fg px-4 text-[13.5px] font-medium text-bg"
                 >
-                  <Mail className="size-4" /> Join the Monday list
+                  <Mail className="size-4" /> Join the Friday list
                 </a>
               </div>
             )}
@@ -303,13 +300,13 @@ export function Board() {
             </div>
 
             <div className="rounded-card border border-line bg-surface p-6">
-              <p className="text-[11.5px] tracking-[0.16em] text-faint uppercase">Every Monday</p>
-              <p className="mt-3 text-[15px] leading-snug font-medium">Get the new entry-level roles in one email.</p>
+              <p className="text-[11.5px] tracking-[0.16em] text-faint uppercase">Every Friday</p>
+              <p className="mt-3 text-[15px] leading-snug font-medium">New roles at Muslim-led organisations, one email.</p>
               <p className="mt-2 text-[13px] leading-relaxed text-muted">
                 Only what was added since the last list. No recruiter spam, no “unlimited opportunity” nonsense.
               </p>
               <a
-                href="mailto:khhnabubakar786@gmail.com?subject=Add%20me%20to%20the%20Monday%20list&body=Send%20me%20the%20weekly%20entry-level%20roles."
+                href="mailto:khhnabubakar786@gmail.com?subject=Add%20me%20to%20the%20Friday%20list&body=Send%20me%20the%20weekly%20roles%20at%20Muslim-led%20organisations."
                 className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-medium text-fg link-draw"
               >
                 <Mail className="size-4" /> Join the list
@@ -317,11 +314,11 @@ export function Board() {
             </div>
 
             <div className="rounded-card border border-line p-6">
-              <p className="text-[11.5px] tracking-[0.16em] text-faint uppercase">How this is filtered</p>
+              <p className="text-[11.5px] tracking-[0.16em] text-faint uppercase">How this list is built</p>
               <ul className="mt-3 space-y-2 text-[13px] text-muted">
-                <li>· Entry-level flagged by the source</li>
-                <li>· Senior and lead titles removed</li>
-                <li>· “3+ years” requirements penalised</li>
+                <li>· A fixed list of Muslim-led employers</li>
+                <li>· Read from their own careers pages</li>
+                <li>· Every apply link goes to the employer</li>
               </ul>
               <Link to="/how-it-works" className="link-draw mt-3 inline-block text-[13px] font-medium text-fg">
                 Read the method

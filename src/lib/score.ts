@@ -1,116 +1,111 @@
 import type { Family, Region } from './types'
 
 /**
- * The whole product is this file: deciding which of the ~12,000 entry-level
- * listings in the feeds are genuinely a first tech job. Everything here is
- * pure so the ingester and the tests share one implementation.
+ * Classification for the board: which kind of Muslim-organisation role a
+ * listing is, and where it sits. Pure functions so the ingester and the tests
+ * share one implementation.
  */
 
-const TECH_ROLE =
-  /(engineer|developer|programmer|software|front[\s-]?end|back[\s-]?end|full[\s-]?stack|data (analyst|engineer|scientist|ops)|analytics engineer|machine learning|\bml\b|\bai\b|artificial intelligence|devops|sre\b|site reliability|qa\b|quality assurance|tester|test automation|security|cyber|cloud|infrastructure|mobile|ios|android|web|wordpress|react|node|python|java\b|golang|\brust\b|\bphp\b|\bruby\b|\.net|c\+\+|sql|database|sysadmin|systems? admin|support engineer|technical support)/i
+export function classifyFamily(title: string, extra: string[] = []): Family {
+  const haystack = `${title} ${extra.join(' ')}`.toLowerCase()
 
-const NON_TECH =
-  /(nurse|clinical|physician|therapist|attorney|paralegal|accountant|bookkeep|sales|account executive|recruiter|talent acquisition|copywriter|content writer|social media|marketing|virtual assistant|data entry|translat|tutor|teacher|customer success|office manager)/i
-
-const SENIOR_TITLE = /(senior|staff\b|principal|lead\b|head of|director|manager|architect|vp\b|chief)/i
-
-const JUNIOR_TITLE = /(junior|\bjr\b|entry[\s-]?level|graduate|recent grad|\bintern\b|internship|apprentice|trainee|\bassociate\b|\bi\b$)/i
-
-const JUNIOR_TEXT =
-  /(no experience|without experience|bootcamp|recent graduate|new grad|graduate program|0[\s-]?2 years|0[\s-]?–[\s-]?2 years|entry level|entry-level|first (job|role)|career (change|changer|switcher))|(?:1\+?\s*year)/i
-
-const YEARS_3_PLUS = /\b([3-9]|[1-9]\d)\s*\+?\s*years?\b/i
-
-export type FitInput = {
-  title: string
-  text: string
-  seniority?: string[]
-  tags?: string[]
-}
-
-export type Fit = { fit: number; reasons: string[] }
-
-/** Returns null when the listing is not a tech role at all. */
-export function scoreFit({ title, text, seniority = [], tags = [] }: FitInput): Fit | null {
-  const haystack = `${title} ${tags.join(' ')} ${text}`.toLowerCase()
-  const titleLower = title.toLowerCase()
-
-  const isTech = TECH_ROLE.test(title) || tags.some((tag) => TECH_ROLE.test(tag))
-  if (!isTech) return null
-  if (NON_TECH.test(titleLower) && !TECH_ROLE.test(title)) return null
-
-  const reasons: string[] = []
-  let fit = 38
-
-  const levels = seniority.map((value) => value.toLowerCase())
-  if (levels.includes('entry-level')) {
-    fit += 34
-    reasons.push('Listed as entry-level')
-  } else if (levels.length > 0) {
-    fit -= 6
+  if (/(imam|islamic studies|quran|qur'an|hifz|hafiz|shariah|sharia|fatwa|chaplain|religious|aqeedah|seerah)/.test(haystack)) {
+    return 'islamic-studies'
   }
-
-  if (JUNIOR_TITLE.test(title)) {
-    fit += 18
-    reasons.push('Junior title')
+  if (/(teacher|teaching|tutor|madrasah|madrasa|school|academy|seminary|curriculum|senco|lecturer|maths|mathematics|humanities|head of english|english teacher)/.test(haystack)) {
+    return 'education'
   }
-
-  if (JUNIOR_TEXT.test(haystack)) {
-    fit += 9
-    reasons.push('Mentions no experience / early career')
+  if (/(fundrais|donor|philanthrop|legacy|major gift|community engagement|events? officer)/.test(haystack)) {
+    return 'fundraising'
   }
-
-  if (SENIOR_TITLE.test(title)) {
-    fit -= 34
+  if (/(programme|program\b|project|relief|humanitarian|field officer|monitoring|evaluation|emergency|wash|livelihood|food security)/.test(haystack)) {
+    return 'programmes'
   }
-
-  if (YEARS_3_PLUS.test(text)) {
-    fit -= 18
+  if (/(finance|financial|accountant|accounting|payroll|bookkeep|audit|treasur|procurement)/.test(haystack)) {
+    return 'finance'
   }
-
-  if (/\b(phd|doctorate)\b/i.test(text)) {
-    fit -= 10
+  if (/(market|communicat|social media|content|design|brand|media|digital marketing|copywrit|video|graphic|pr\b|public relations)/.test(haystack)) {
+    return 'comms'
   }
-
-  const salary = /(salary|compensation|\$\d|€\d|£\d)/i.test(text)
-  if (salary) {
-    fit += 3
+  if (/(operations|operational|\bhr\b|human resources|people|recruit|office|administrat|facilit|logistics|compliance|governance|volunteer|security officer|facilities)/.test(haystack)) {
+    return 'operations'
   }
-
-  fit = Math.max(0, Math.min(98, Math.round(fit)))
-  if (fit < 35) return null
-  if (reasons.length === 0) reasons.push('Entry-friendly requirements')
-  return { fit, reasons: reasons.slice(0, 3) }
-}
-
-/** 0 = worldwide, otherwise the first region any country falls into. */
-export function classifyRegion(countries: string[]): Region {
-  if (countries.length === 0) return 'worldwide'
-  const list = countries.map((country) => country.toLowerCase()).join(' ')
-
-  if (/(united states|canada|mexico|brazil|argentina|chile|colombia|peru|uruguay|america)/.test(list)) return 'americas'
-  if (/(united kingdom|germany|france|spain|portugal|netherlands|ireland|italy|poland|sweden|norway|denmark|finland|switzerland|austria|belgium|czech|romania|ukraine|estonia|lithuania|latvia|greece|hungary|bulgaria|croatia|slovakia|slovenia|serbia|europe)/.test(list)) return 'europe'
-  if (/(india|australia|new zealand|singapore|japan|korea|philippines|indonesia|malaysia|vietnam|thailand|pakistan|bangladesh|sri lanka|china|hong kong|taiwan)/.test(list)) return 'asia-pacific'
+  if (/(developer|engineer|software|\bit\b|data|web|systems? admin|technical|developer|devops|database|digital experience)/.test(haystack)) {
+    return 'it'
+  }
+  if (/(nurse|health|medical|clinic|doctor|physician|counsel|therap|mental health|care worker|social worker|midwif)/.test(haystack)) {
+    return 'health'
+  }
   return 'other'
 }
 
-export function classifyFamily(title: string, tags: string[]): Family {
-  const haystack = `${title} ${tags.join(' ')}`.toLowerCase()
-  if (/(qa\b|quality assurance|tester|test automation|sdet)/.test(haystack)) return 'qa'
-  if (/(devops|sre\b|site reliability|platform engineer|cloud|infrastructure|kubernetes|aws)/.test(haystack)) return 'devops'
-  if (/(security|cyber|soc analyst|penetration)/.test(haystack)) return 'security'
-  if (/(data analyst|data engineer|data scientist|analytics|machine learning|\bml\b|\bai\b)/.test(haystack)) return 'data'
-  if (/(designer|ux|ui design|product design|figma)/.test(haystack)) return 'design'
-  if (/(engineer|developer|programmer|software|front[\s-]?end|back[\s-]?end|full[\s-]?stack|web|mobile|ios|android)/.test(haystack)) return 'engineering'
+/** Country and state names first: they are the only reliable signal. */
+const REGION_COUNTRIES: [Region, RegExp][] = [
+  ['uk', /(united kingdom|\buk\b|england|scotland|wales|northern ireland|great britain)/i],
+  ['north-america', /(united states|\busa?\b|u\.s\.|canada|ontario|quebec)/i],
+  ['middle-east', /(saudi|uae|united arab emirates|qatar|kuwait|bahrain|oman|jordan|lebanon|iraq|yemen|palestine|gaza|syria|turkey|türkiye)/i],
+  [
+    'africa',
+    /(nigeria|kenya|somalia|sudan|south sudan|ethiopia|egypt|morocco|algeria|tunisia|ghana|senegal|mali|uganda|tanzania|zambia|malawi|niger|chad|mauritania|gambia|sierra leone|libya|djibouti|burkina)/i,
+  ],
+  ['asia-pacific', /(pakistan|bangladesh|india|indonesia|malaysia|sri lanka|nepal|afghanistan|philippines|australia|new zealand|singapore|japan|china|thailand|vietnam)/i],
+  [
+    'europe',
+    /(germany|france|spain|italy|netherlands|belgium|sweden|norway|denmark|finland|ireland|portugal|poland|austria|switzerland|bosnia|albania|kosovo|greece)/i,
+  ],
+]
+
+/** Cities only after no country matched, and only unambiguous ones. */
+const REGION_CITIES: [Region, RegExp][] = [
+  ['uk', /(london|birmingham|manchester|leeds|glasgow|nottingham|leicester|coventry|bradford|luton|bristol|edinburgh|cardiff|belfast|sheffield|liverpool)/i],
+  ['north-america', /(toronto|mississauga|brampton|ottawa|calgary|vancouver|edmonton|chicago|new york|houston|dallas|atlanta|detroit|los angeles|washington|montreal)/i],
+  ['middle-east', /(dubai|abu dhabi|doha|riyadh|jeddah|amman|beirut|istanbul)/i],
+]
+
+/** Region for a free-text location, e.g. "Manchester, UK" or "Cambridge, Ontario". */
+export function classifyRegion(location: string, countries: string[] = []): Region {
+  const haystack = `${location} ${countries.join(' ')}`.trim()
+  if (!haystack) return 'worldwide'
+  if (/\b(remote|worldwide|global|anywhere)\b/i.test(haystack) && countries.length === 0) return 'worldwide'
+  for (const [region, pattern] of REGION_COUNTRIES) {
+    if (pattern.test(haystack)) return region
+  }
+  for (const [region, pattern] of REGION_CITIES) {
+    if (pattern.test(haystack)) return region
+  }
   return 'other'
+}
+
+const COUNTRY_HINTS: [string, RegExp][] = [
+  ['United Kingdom', /(united kingdom|\buk\b|england|scotland|wales|northern ireland)/i],
+  ['United States', /(united states|\busa?\b|u\.s\.)/i],
+  ['Canada', /(canada|ontario|quebec)/i],
+  ['Pakistan', /pakistan/i],
+  ['Bangladesh', /bangladesh/i],
+  ['Nigeria', /nigeria/i],
+  ['Kenya', /kenya/i],
+  ['Somalia', /somalia/i],
+  ['Malaysia', /malaysia/i],
+  ['Indonesia', /indonesia/i],
+  ['Turkey', /(turkey|türkiye)/i],
+  ['Saudi Arabia', /saudi/i],
+  ['United Arab Emirates', /(uae|united arab emirates|dubai|abu dhabi)/i],
+  ['South Africa', /south africa/i],
+  ['Australia', /australia/i],
+]
+
+/** Best-effort country name from a location string, for the dataset counts. */
+export function countryOf(location: string): string | null {
+  for (const [country, pattern] of COUNTRY_HINTS) {
+    if (pattern.test(location)) return country
+  }
+  return null
 }
 
 export function jobKey(company: string, title: string): string {
   return `${company} ${title}`
     .toLowerCase()
-    .replace(/\((?:m|f|d|w|x)(?:\s*\/\s*(?:m|f|d|w|x))+\)/g, ' ')
-    .replace(/\b(gmbh|inc|incorporated|ltd|llc|corp|corporation|limited|ug|bv)\b/g, ' ')
-    .replace(/\b(senior|staff|lead|principal|junior|jr|entry|level)\b/g, ' ')
+    .replace(/\b(gmbh|inc|incorporated|ltd|llc|corp|corporation|limited|uk|usa|canada|foundation|trust|charity)\b/g, ' ')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
 }

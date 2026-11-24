@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import type { Dataset, Job } from './types'
+import type { Dataset, Job, JobSource } from './types'
+import { SOURCE_LABELS } from './types'
 
 let cache: Promise<Dataset> | null = null
 
@@ -53,9 +54,11 @@ const MINUTE = 60_000
 const HOUR = 60 * MINUTE
 const DAY = 24 * HOUR
 
-export function timeAgo(iso: string): string {
+/** Null when the organisation publishes no date, so the UI can stay honest. */
+export function timeAgo(iso: string | null): string | null {
+  if (!iso) return null
   const then = Date.parse(iso)
-  if (Number.isNaN(then)) return 'recently'
+  if (Number.isNaN(then)) return null
   const diff = Math.max(0, Date.now() - then)
   if (diff < HOUR) return `${Math.max(1, Math.round(diff / MINUTE))}m ago`
   if (diff < DAY) return `${Math.round(diff / HOUR)}h ago`
@@ -75,12 +78,8 @@ export function updatedAgo(iso: string): string {
   return days === 1 ? 'yesterday' : `${days} days ago`
 }
 
-export type Tier = { label: string; className: string }
-
-export function fitTier(fit: number): Tier {
-  if (fit >= 85) return { label: 'Strong fit', className: 'bg-fg text-bg' }
-  if (fit >= 70) return { label: 'Good fit', className: 'bg-surface-2 text-fg border border-line-strong' }
-  return { label: 'Worth a look', className: 'text-muted border border-line-strong' }
+export function sourceLabel(source: JobSource): string {
+  return SOURCE_LABELS[source] ?? source
 }
 
 export function monogram(company: string): string {

@@ -1,11 +1,11 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
 
-import { fitTier, monogram, timeAgo } from '../../lib/jobs'
-import type { Job } from '../../lib/types'
+import { monogram, sourceLabel, timeAgo } from '../../lib/jobs'
+import { FAMILY_LABELS, type Job } from '../../lib/types'
 
 export function JobRow({ job }: { job: Job }) {
-  const tier = fitTier(job.fit)
+  const age = timeAgo(job.postedAt)
 
   return (
     <Link
@@ -20,19 +20,26 @@ export function JobRow({ job }: { job: Job }) {
           <div className="min-w-0">
             <p className="truncate text-[13.5px] font-medium text-muted">{job.company}</p>
             <p className="text-[12px] text-faint">
-              {timeAgo(job.postedAt)} · via {job.source === 'himalayas' ? 'Himalayas' : 'Remote OK'}
+              {age ? `${age} · ` : ''}
+              via {sourceLabel(job.source)}
             </p>
           </div>
         </div>
-        <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-medium ${tier.className}`}>{tier.label}</span>
+        <span className="shrink-0 rounded-full border border-line bg-surface px-2.5 py-1 text-[11px] font-medium text-muted">
+          {FAMILY_LABELS[job.family]}
+        </span>
       </div>
 
       <h3 className="text-[18px] leading-snug font-medium tracking-[-0.015em] text-fg sm:text-[19px]">{job.title}</h3>
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[13px] text-muted">
         <span>{job.location}</span>
-        <span className="text-line-strong">/</span>
-        <span>{job.type}</span>
+        {job.type && (
+          <>
+            <span className="text-line-strong">/</span>
+            <span>{job.type}</span>
+          </>
+        )}
         {job.salary && (
           <>
             <span className="text-line-strong">/</span>

@@ -3,8 +3,8 @@
   // (which the Vite plugin uses for dev) because postbuild.mjs strips source
   // maps, and the generated dist config demands them.
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "first-rung",
-  "main": "./dist/first_rung/index.js",
+  "name": "amanah-jobs",
+  "main": "./dist/amanah_jobs/index.js",
   "no_bundle": true,
   "compatibility_date": "2026-09-29",
   "assets": {

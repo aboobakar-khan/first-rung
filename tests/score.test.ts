@@ -1,71 +1,65 @@
 import { describe, expect, test } from 'bun:test'
 
-import { classifyFamily, classifyRegion, jobKey, plainText, scoreFit, stableId } from '../src/lib/score'
+import { classifyFamily, classifyRegion, countryOf, jobKey, plainText, stableId } from '../src/lib/score'
 
-describe('scoreFit', () => {
-  test('keeps an entry-level engineering role', () => {
-    const result = scoreFit({
-      title: 'Junior Frontend Developer',
-      text: 'Build interfaces with React. No experience required, we train you. 0-2 years.',
-      seniority: ['Entry-level'],
-      tags: ['engineering'],
-    })
-    expect(result).not.toBeNull()
-    expect(result!.fit).toBeGreaterThanOrEqual(85)
-    expect(result!.reasons.length).toBeGreaterThan(0)
+describe('classifyFamily', () => {
+  test('recognises religious roles', () => {
+    expect(classifyFamily('Full-Time Imam')).toBe('islamic-studies')
+    expect(classifyFamily('Quran Teacher (Part-Time)')).toBe('islamic-studies')
   })
 
-  test('drops senior titles even when the feed says entry-level', () => {
-    expect(
-      scoreFit({
-        title: 'Senior Software Engineer',
-        text: 'Lead a team of five engineers. 6+ years of experience required.',
-        seniority: ['Entry-level'],
-        tags: ['engineering'],
-      }),
-    ).toBeNull()
+  test('separates education, fundraising and programmes', () => {
+    expect(classifyFamily('Head of Maths')).toBe('education')
+    expect(classifyFamily('Community Fundraiser')).toBe('fundraising')
+    expect(classifyFamily('Programmes Officer')).toBe('programmes')
   })
 
-  test('drops non-tech roles', () => {
-    expect(scoreFit({ title: 'Registered Nurse', text: 'Clinical care', seniority: ['Entry-level'] })).toBeNull()
-    expect(scoreFit({ title: 'Sales Development Representative', text: 'Outbound sales', seniority: ['Entry-level'] })).toBeNull()
+  test('separates finance, comms, operations, IT and health', () => {
+    expect(classifyFamily('Finance Assistant')).toBe('finance')
+    expect(classifyFamily('Social Media Manager')).toBe('comms')
+    expect(classifyFamily('HR Coordinator')).toBe('operations')
+    expect(classifyFamily('Backend Engineer')).toBe('it')
+    expect(classifyFamily('Registered Nurse')).toBe('health')
+    expect(classifyFamily('Logistics Assistant')).toBe('operations')
   })
 
-  test('penalises explicit experience requirements in the body', () => {
-    const plain = scoreFit({ title: 'Backend Developer', text: 'Python services.', seniority: ['Entry-level'] })
-    const demanding = scoreFit({ title: 'Backend Developer', text: 'Python services. 5+ years of production experience.', seniority: ['Entry-level'] })
-    expect(plain!.fit).toBeGreaterThan(demanding!.fit)
+  test('falls back to other', () => {
+    expect(classifyFamily('General Assistant')).toBe('other')
+  })
+})
+
+describe('classifyRegion', () => {
+  test('reads the country before the city', () => {
+    expect(classifyRegion('Cambridge, Ontario')).toBe('north-america')
+    expect(classifyRegion('Cambridge, UK')).toBe('uk')
+    expect(classifyRegion('Manchester, United Kingdom')).toBe('uk')
+    expect(classifyRegion('Toronto, Canada')).toBe('north-america')
   })
 
-  test('scores are bounded', () => {
-    const result = scoreFit({
-      title: 'Junior Graduate Software Engineer Intern',
-      text: 'No experience. Bootcamp friendly. Recent graduate. 1+ year. Salary $70k.',
-      seniority: ['Entry-level'],
-      tags: ['engineering'],
-    })
-    expect(result!.fit).toBeLessThanOrEqual(98)
-    expect(result!.fit).toBeGreaterThanOrEqual(0)
+  test('handles other regions', () => {
+    expect(classifyRegion('Dubai, United Arab Emirates')).toBe('middle-east')
+    expect(classifyRegion('Nairobi, Kenya')).toBe('africa')
+    expect(classifyRegion('Lahore, Pakistan')).toBe('asia-pacific')
+    expect(classifyRegion('Berlin, Germany')).toBe('europe')
+  })
+
+  test('is honest when it cannot tell', () => {
+    expect(classifyRegion('')).toBe('worldwide')
+    expect(classifyRegion('Multiple locations')).toBe('other')
+  })
+})
+
+describe('countryOf', () => {
+  test('extracts a country for the dataset counts', () => {
+    expect(countryOf('Manchester, United Kingdom')).toBe('United Kingdom')
+    expect(countryOf('Burlington, ON, Canada')).toBe('Canada')
+    expect(countryOf('Remote')).toBeNull()
   })
 })
 
 describe('helpers', () => {
-  test('jobKey ignores company suffixes and seniority words so duplicates collapse', () => {
-    expect(jobKey('Acme GmbH', 'Junior Developer (m/f/d)')).toBe(jobKey('Acme', 'Developer'))
-  })
-
-  test('classifyRegion reads the first region a country belongs to', () => {
-    expect(classifyRegion([])).toBe('worldwide')
-    expect(classifyRegion(['United States'])).toBe('americas')
-    expect(classifyRegion(['Germany'])).toBe('europe')
-    expect(classifyRegion(['India', 'Singapore'])).toBe('asia-pacific')
-    expect(classifyRegion(['Kenya'])).toBe('other')
-  })
-
-  test('classifyFamily separates QA, data and engineering', () => {
-    expect(classifyFamily('QA Engineer', [])).toBe('qa')
-    expect(classifyFamily('Data Analyst', [])).toBe('data')
-    expect(classifyFamily('Backend Developer', [])).toBe('engineering')
+  test('jobKey ignores organisation suffixes so duplicates collapse', () => {
+    expect(jobKey('Human Appeal', 'Fundraiser')).toBe(jobKey('Human Appeal Ltd', 'Fundraiser'))
   })
 
   test('plainText strips markup, entities and keeps a clean cut', () => {
@@ -78,8 +72,8 @@ describe('helpers', () => {
   })
 
   test('stableId is deterministic and url-safe', () => {
-    expect(stableId('https://himalayas.app/jobs/1')).toBe(stableId('https://himalayas.app/jobs/1'))
-    expect(stableId('https://himalayas.app/jobs/1')).not.toBe(stableId('https://himalayas.app/jobs/2'))
+    expect(stableId('https://humanappeal.bamboohr.com/careers/40')).toBe(stableId('https://humanappeal.bamboohr.com/careers/40'))
+    expect(stableId('https://humanappeal.bamboohr.com/careers/40')).not.toBe(stableId('https://humanappeal.bamboohr.com/careers/41'))
     expect(stableId('x')).toMatch(/^[a-z0-9]+$/)
   })
 })
