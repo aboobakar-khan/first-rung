@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-24T18:42:27.534Z",
+  "generatedAt": "2026-11-24T18:59:01.412Z",
   "counts": {
     "jobs": 244,
-    "companies": 175,
+    "companies": 176,
     "countries": 49,
     "salaryShown": 67
   },
@@ -1549,35 +1549,6 @@
         "Junior title"
       ],
       "family": "qa",
-      "region": "americas"
-    },
-    {
-      "id": "hs-1oghy0e",
-      "title": "Frontend Engineer Internship",
-      "company": "Metasys",
-      "url": "https://himalayas.app/companies/metasys/jobs/frontend-engineer-internship?utm_source=api",
-      "source": "himalayas",
-      "postedAt": "2026-11-19T17:08:21.000Z",
-      "location": "United States",
-      "salary": null,
-      "type": "Intern",
-      "tags": [
-        "Frontend-Engineer",
-        "Front-End-Developer",
-        "Web-Developer",
-        "UI-Engineer"
-      ],
-      "seniority": [
-        "Entry-level"
-      ],
-      "excerpt": "Overview: Building High-Performance User Experiences The Frontend Engineer is essential for bringing our supply chain e-commerce vision to life by building high-performance, responsive, and accessible user interfaces.",
-      "description": "Overview: Building High-Performance User Experiences \n The Frontend Engineer is essential for bringing our supply chain e-commerce vision to life by building high-performance, responsive, and accessible user interfaces. You will be responsible for developing the frontend applications for our diverse product ecosystem, including the customer-facing e-commerce storefront, the sophisticated B2B portal, and critical internal tools (collaboration, project management).\n Key Responsibilities & Core Projects \n You will own the client-side development, ensuring optimal user experience and front-end architectural quality.\n \n UI Development & Implementation: Build and maintain user interfaces for multiple products using Next.js 14, React 18, and TypeScript. This includes the e-commerce flows (catalog, cart, checkout) and the complex interfaces for the internal WMS and OMS modules.\n\n Design System & Accessibility: Implement components using Tailwind CSS and Radix UI to ensure visual consistency, performance, and adherence to WCAG accessibility standards.\n\n Performance Optimization: Aggressively optimize frontend performance, focusing on fast page loads, core web vitals, and minimizing render blocking. Implement state management and use Framer Motion for smooth, optimized animations.\n\n Testing & Experimentation: Conduct usability testing and build out the necessary architecture to support A/B testing on new features, such as checkout flow variations or personalization logic.\n\n Monorepo Collaboration: Work within the Monorepo structure, collaborating closely with Backend Engineers to define and consume API contracts efficiently.\n\n Required Technologies & Tools \n Candidates must possess deep expertise and hands-on experience with our core frontend stack:\n \n Core Stack: Expert proficiency in Next.js 14, React 18, and TypeScript (mandatory).\n\n Styling & Components: Strong experience with Tailwind CSS and building accessible components with Radix UI.\n\n Animation/UX: Experience implementing complex, high-performance UI/UX using Framer Motion.\n\n Workflow: Experience working in a large Monorepo environment and consuming REST/GraphQL APIs from a Node.js/NestJS backend.\n\n Testing: Experience with modern E2E and unit testing frameworks (e.g., Jest/Playwright).\n\n AI Agent Focus \n You will design the user experience for interacting with intelligent systems.\n \n Agent Interfaces: Build the frontend interfaces (e.g., chat widgets, data visualization panels) for interacting with and receiving output from the AI agents.…",
-      "fit": 90,
-      "reasons": [
-        "Listed as entry-level",
-        "Junior title"
-      ],
-      "family": "engineering",
       "region": "americas"
     },
     {
@@ -3741,35 +3712,6 @@
       "region": "asia-pacific"
     },
     {
-      "id": "hs-bpx7no",
-      "title": "ServiceNow Developer",
-      "company": "Cloud People",
-      "url": "https://himalayas.app/companies/cloud-people/jobs/servicenow-developer?utm_source=api",
-      "source": "himalayas",
-      "postedAt": "2026-11-19T17:02:23.000Z",
-      "location": "Brazil",
-      "salary": null,
-      "type": "Full Time",
-      "tags": [
-        "ServiceNow-Developer",
-        "Software-Developer",
-        "Application-Developer",
-        "Platform-Developer"
-      ],
-      "seniority": [
-        "Entry-level"
-      ],
-      "excerpt": "At The Cloud People, we are accelerating our impact across through the power of ServiceNow.",
-      "description": "At The Cloud People , we are accelerating our impact across through the power of ServiceNow. As a growing ServiceNow Lifecycle Partner across Europe, the US, and Brazil, we are looking for talented ServiceNow Developers to join our team in Brazil.\n In this role, you will work closely with clients, consultants, and technical teams to deliver innovative ServiceNow solutions that help organizations modernize their operations and maximize the value of the platform. This is an excellent opportunity for developers looking to grow their careers while working alongside experienced ServiceNow professionals in a collaborative and international environment.\n About Us\n The Cloud People has a global team of ServiceNow experts and is one of Europe’s largest independent ServiceNow partners. With more than 350 certified consultants, we support over 150 clients across a wide range of industries.\n We offer a broad portfolio of services around the ServiceNow platform, from consulting and implementation to migration and managed services. Our culture is built on the belief that people perform at their best when they enjoy what they do, and we are committed to creating an environment where learning, collaboration, and growth are part of everyday work.\n About the Role\n As a ServiceNow Developer , you will contribute to the design, development, testing, and implementation of ServiceNow solutions while following platform best practices. You will collaborate with clients and internal teams to solve technical challenges, deliver high-quality solutions, and continuously improve the services we provide.\n This role offers the opportunity to work on diverse projects, gain exposure to cutting-edge technologies, and develop your expertise alongside a global team of ServiceNow specialists.\n Key Responsibilities\n \n Assist in developing ServiceNow solutions while following platform best practices.\n\n Work with clients to understand technical requirements and resolve issues.\n\n Provide creative and effective solutions to business challenges.\n\n Support the design, development, testing, and implementation of ServiceNow solutions.\n\n Contribute to the continuous improvement and expansion of services offered by The Cloud People .\n\n Communicate technical concepts effectively to both technical and non-technical audiences.\n\n Create and maintain clear technical documentation.\n\n Collaborate with multidisciplinary and international teams to deliver successful projects.\n\n What We Are Looking For\n Qualifications & Skills\n \n 1+ years of experience in ServiceNow project implementation.…",
-      "fit": 81,
-      "reasons": [
-        "Listed as entry-level",
-        "Mentions no experience / early career"
-      ],
-      "family": "engineering",
-      "region": "americas"
-    },
-    {
       "id": "hs-53fjuu",
       "title": "Customer Support Engineer",
       "company": "Bugcrowd",
@@ -4742,6 +4684,33 @@
         "Mentions no experience / early career"
       ],
       "family": "data",
+      "region": "americas"
+    },
+    {
+      "id": "hs-7xw2sy",
+      "title": "Entrepreneurial Front End Developer. Inspire a Generation to Care with our Start",
+      "company": "iFLIP4",
+      "url": "https://himalayas.app/companies/iflip4/jobs/entrepreneurial-front-end-developer-inspire-a-generation-to-care-with-our-start?utm_source=api",
+      "source": "himalayas",
+      "postedAt": "2026-11-24T15:54:31.000Z",
+      "location": "United States",
+      "salary": null,
+      "type": "Intern",
+      "tags": [
+        "Front-End-Developer",
+        "Web-Developer",
+        "UI-Developer"
+      ],
+      "seniority": [
+        "Entry-level"
+      ],
+      "excerpt": "We want to change the world. We’re a team of fast-executing social entrepreneurs on a mission to build the future of social change.",
+      "description": "We want to change the world. We’re a team of fast-executing social entrepreneurs on a mission to build the future of social change. You want to change the world? This is your chance!\n We’re not looking for someone to do busy work or implement another Rails app. We are searching for an outstanding front end developer to build our business with! We want someone who sees iFLIP4 in its Beta stages, and who can envision a future where it is the place to go for EVERYONE who cares. We want someone who wants to create the future, not someone who will settle for an unfulfilling position at a giant corporation.\n We don’t want a code monkey; we don’t want someone to say yes and implement every feature we ask for. What we want is a partner. Someone to bounce ideas off of, someone with a vision for the future of our company, and someone who has the desire and drive to make it a reality.\n Importantly, the most driven, high performing interns will be given the opportunity to take on full time roles after we raise our Angel round of funding.\n Responsibilities\n \n Code the full version of iFLIP4 ’s website, which has been expertly designed by a Web Designer with a Masters in HCI from Carnegie Mellon\n\n Maintain and update the current Beta website on a regular basis\n\n Design and implement reusable cross-platform features\n\n Create responsive webpages\n\n Brainstorm new design ideas and upcoming apps with other members of the technical, design, and Core teams\n\n Technical Requirements\n \n Expertise in HTML5, CSS3, and JavaScript/JQuery\n\n 1-2 years of web development experience, with impressive past projects\n\n LAMP stack experience\n\n MVC experience\n\n Knowledge of ExpressionEngine Framework\n\n Strong understanding of SEO\n\n Degree in Computer Science/Design\n\n Great English communication skills, both written and spoken\n\n Ability to visualize your ideas beautifully in Illustrator/Photoshop a plus\n\n \n Expertise in HTML5, CSS3, and JavaScript/JQuery\n\n 1-2 years of web development experience, with impressive past projects\n\n LAMP stack experience\n\n MVC experience\n\n Knowledge of ExpressionEngine Framework\n\n Strong understanding of SEO\n\n Degree in Computer Science/Design\n\n Great English communication skills, both written and spoken\n\n Ability to visualize your ideas beautifully in Illustrator/Photoshop a plus\n\n This position requires a commitment of about 20 hours/week…",
+      "fit": 72,
+      "reasons": [
+        "Listed as entry-level"
+      ],
+      "family": "engineering",
       "region": "americas"
     },
     {
@@ -6877,6 +6846,35 @@
         "Listed as entry-level"
       ],
       "family": "qa",
+      "region": "americas"
+    },
+    {
+      "id": "hs-1d6sfwk",
+      "title": "Senior Data Scientist Intern",
+      "company": "Flowai",
+      "url": "https://himalayas.app/companies/flowai/jobs/senior-data-scientist-intern?utm_source=api",
+      "source": "himalayas",
+      "postedAt": "2026-11-19T17:27:26.000Z",
+      "location": "United States",
+      "salary": null,
+      "type": "Intern",
+      "tags": [
+        "Data-Scientist",
+        "Python-Developer",
+        "Backend-Engineer",
+        "Data-Science"
+      ],
+      "seniority": [
+        "Entry-level"
+      ],
+      "excerpt": "This is an unpaid internship at this time and is suitable for candidates pursuing degree completion that wants to be a Senior Data Scientist.",
+      "description": "This is an unpaid internship at this time and is suitable for candidates pursuing degree completion that wants to be a Senior Data Scientist. \n Company Overview:\n Flow Global Software Technologies, LLC., operating in the Information Technology (IT) sector, is a cutting-edge high-tech enterprise AI company that engages in the design, engineering, marketing, sales, and 5-star support of a cloud-based enterprise AI platform with patent pending artificial intelligence, deep learning, and other core proprietary technologies awaiting patent approval. Flow Turbo™, the company's first product, is a brand of next-generation SaaS AI sales prospecting platform that is designed to maximize the productivity day-to-day for B2B sales representatives within B2B outbound, inbound, and inside sales organizations of B2B companies. The company also provides world-class award-winning customer support, professional services, guidance, certifications, training, and advisory services. The company is headquartered in Austin, Texas and is registered in Delaware.\n Position Overview:\n Flow is seeking a highly skilled and highly motivated Senior Data Scientist Intern to join our engineering organization. This is an exciting opportunity to gain hands-on experience in advanced complex data science and data engineering, with a focus on Django, data collection, data extraction, data mining, and data processing, as well as AI training, DevOps, containerization, and cloud infrastructure. This position is ideal for individuals currently pursuing or have obtained a Master's degree in Computer Science with a strong background in data science and Django development. The internship is remote-only and requires a commitment of at least 30 hours per week. \n Responsibilities:\n \n \n Data Management:\n\n \n Data Extraction & Mining: Utilize tools like Django, Puppeteer, and Selenium to extract and mine data from various sources.\n\n Data Collection, Processing & Cleaning: Collect, process, and clean data to ensure its quality and readiness for analysis.\n\n \n\n \n Data Collection, Processing, and Cleaning:\n\n \n Collect, process, and clean large datasets to ensure data quality and consistency.\n\n Implement data pipelines for seamless data flow and transformation.\n\n \n\n \n AI Training:\n\n \n Train AI models using the collected and processed data.\n\n Implement and fine-tune AI algorithms for various applications.\n\n \n\n \n Data Scraping & Automation:\n\n \n Develop and maintain data scraping tools using Puppeteer, Selenium, and HTML.\n\n Extract valuable information from various sources and organize it for further analysis.…",
+      "fit": 56,
+      "reasons": [
+        "Listed as entry-level",
+        "Junior title"
+      ],
+      "family": "data",
       "region": "americas"
     },
     {
