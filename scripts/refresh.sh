@@ -9,8 +9,11 @@ export PATH="$(dirname "$BUN"):/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/u
 export GIT_TERMINAL_PROMPT=0
 
 # Cloudflare credentials for the deploy step, kept outside the repository.
+# `set -a` exports the assignments so wrangler inherits them.
 if [ -f "$HOME/.config/firstrung/cloudflare.env" ]; then
+  set -a
   . "$HOME/.config/firstrung/cloudflare.env"
+  set +a
 fi
 
 cd "$REPO" || exit 1
@@ -39,6 +42,11 @@ echo "[$(date -u +%FT%TZ)] dataset refreshed and pushed"
 # changes what visitors actually see.
 if ! "$BUN" run build; then
   echo "[$(date -u +%FT%TZ)] build failed; the live site was left on the previous build"
+  exit 1
+fi
+
+if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+  echo "[$(date -u +%FT%TZ)] no CLOUDFLARE_API_TOKEN (see ~/.config/firstrung/cloudflare.env); skipping deploy"
   exit 1
 fi
 
