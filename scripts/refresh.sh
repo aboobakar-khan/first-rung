@@ -8,6 +8,11 @@ BUN="${FREEBUFF_BUN:-/Applications/Freebuff.app/Contents/Resources/bun/bun}"
 export PATH="$(dirname "$BUN"):/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export GIT_TERMINAL_PROMPT=0
 
+# Cloudflare credentials for the deploy step, kept outside the repository.
+if [ -f "$HOME/.config/firstrung/cloudflare.env" ]; then
+  . "$HOME/.config/firstrung/cloudflare.env"
+fi
+
 cd "$REPO" || exit 1
 
 echo "[$(date -u +%FT%TZ)] refreshing job dataset"
