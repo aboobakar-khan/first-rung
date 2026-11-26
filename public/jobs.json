@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-25T00:48:12.482Z",
+  "generatedAt": "2026-11-26T00:48:21.253Z",
   "counts": {
-    "jobs": 92,
+    "jobs": 93,
     "organisations": 7,
     "countries": 4,
     "salaryShown": 2
@@ -1345,6 +1345,22 @@
       "tags": [],
       "excerpt": "Job Posting - Donor Care Coordinator At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, ",
       "description": "Job Posting - Donor Care Coordinator At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, delivering ai",
+      "family": "fundraising",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-116uo83",
+      "title": "FUNDRAISING CONTRACTOR (HALIFAX)",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/76",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Seasonal part-time",
+      "tags": [],
+      "excerpt": "JOB POSTING - FUNDRAISING CONTRACTOR (HALIFAX) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over ",
+      "description": "JOB POSTING - FUNDRAISING CONTRACTOR (HALIFAX) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, del",
       "family": "fundraising",
       "region": "worldwide"
     },
