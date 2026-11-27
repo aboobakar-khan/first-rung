@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-26T00:48:21.253Z",
+  "generatedAt": "2026-11-27T00:48:40.128Z",
   "counts": {
-    "jobs": 93,
+    "jobs": 94,
     "organisations": 7,
     "countries": 4,
     "salaryShown": 2
@@ -1283,6 +1283,22 @@
       "description": "Who We Are Human Appeal is a global non-profit humanitarian and development organisation. We deliver life-saving emergency assistance such as food, medical aid, and disaster relief. At the same time, we run sustainable, community-led programmes in healthcare, education, and livelihoods to build resilien",
       "family": "comms",
       "region": "uk"
+    },
+    {
+      "id": "ba-10wv2j4",
+      "title": " FUNDRAISING CONTRACTOR (EDMONTON)",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/77",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Seasonal part-time",
+      "tags": [],
+      "excerpt": "Job Posting - FUNDRAISING CONTRACTOR (EDMONTON) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over",
+      "description": "Job Posting - FUNDRAISING CONTRACTOR (EDMONTON) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, de",
+      "family": "fundraising",
+      "region": "worldwide"
     },
     {
       "id": "ba-3w37hg",
