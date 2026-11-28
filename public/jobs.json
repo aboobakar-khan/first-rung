@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-27T00:48:40.128Z",
+  "generatedAt": "2026-11-28T00:48:55.481Z",
   "counts": {
-    "jobs": 94,
+    "jobs": 96,
     "organisations": 7,
     "countries": 4,
     "salaryShown": 2
@@ -1363,6 +1363,38 @@
       "description": "Job Posting - Donor Care Coordinator At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, delivering ai",
       "family": "fundraising",
       "region": "worldwide"
+    },
+    {
+      "id": "ba-14spi8q",
+      "title": "FUNDRAISING CONTRACTOR (CALGARY)",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/79",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Remote",
+      "salary": null,
+      "type": "Seasonal part-time",
+      "tags": [],
+      "excerpt": "Job Posting - FUNDRAISING CONTRACTOR (CALGARY) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over ",
+      "description": "Job Posting - FUNDRAISING CONTRACTOR (CALGARY) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, del",
+      "family": "fundraising",
+      "region": "worldwide"
+    },
+    {
+      "id": "ba-152p3xp",
+      "title": "FUNDRAISING CONTRACTOR (GTA)",
+      "company": "Human Concern International",
+      "url": "https://hci.bamboohr.com/careers/78",
+      "source": "bamboohr",
+      "postedAt": null,
+      "location": "Mississauga, Ontario",
+      "salary": null,
+      "type": "Seasonal part-time",
+      "tags": [],
+      "excerpt": "Job Posting - FUNDRAISING CONTRACTOR (GTA) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 y",
+      "description": "Job Posting - FUNDRAISING CONTRACTOR (GTA) At Human Concern International (HCI), we are committed to responding swiftly and effectively to crises, ensuring that communities receive the support they need when they need it most. For over 40 years, HCI has been at the forefront of emergency relief, deliver",
+      "family": "fundraising",
+      "region": "north-america"
     },
     {
       "id": "ba-116uo83",
